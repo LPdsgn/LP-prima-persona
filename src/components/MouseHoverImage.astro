@@ -1,0 +1,15 @@
+<script>
+  function showImage(index) {
+    const img = document.getElementById(`image-${index}`);
+    if (img) {
+      img.classList.remove("hidden");
+    }
+  }
+
+  function hideImage(index) {
+    const img = document.getElementById(`image-${index}`);
+    if (img) {
+      img.classList.add("hidden");
+    }
+  }
+</script>

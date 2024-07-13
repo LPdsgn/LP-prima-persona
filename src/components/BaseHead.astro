@@ -1,0 +1,90 @@
+---
+import "../styles/global.css";
+import GTMhead from "./tracking/GTMhead.astro";
+// import HeadLinks from "./components/HeadStyles.astro";
+//import HeadScripts from "./components/HeadScripts.astro";
+
+const { title, description, author } = Astro.props;
+let sitename = "";
+let siteURL = "";
+const ogImage = "/media/og/og-lpdsgn-b.jpg";
+
+// Check if the code is running in the browser
+if (typeof window !== "undefined") {
+  const url = new URL(window.location.href);
+  sitename = url.hostname;
+  siteURL = url.origin;
+}
+---
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+  <!--Meta-->
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta name="author" content={author} />
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:site_name" content={sitename} />
+  <meta property="og:url" content={siteURL} />
+
+  <!-- Primary Open Graph Image -->
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:image:alt" content="Social open graph" />
+  <meta property="og:image:type" content="image/jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="" />
+  <meta name="twitter:creator" content="" />
+
+  <!-- Favicon guidelines generated with https://favicon.io/ -->
+  <link
+    rel="apple-touch-icon"
+    sizes="180x180"
+    href="/assets/fav/apple-touch-icon.png"
+  />
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="32x32"
+    href="/assets/fav/favicon-32x32.png"
+  />
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="16x16"
+    href="/assets/fav/favicon-16x16.png"
+  />
+  <link rel="manifest" href="/assets/fav/site.webmanifest" />
+  <link
+    rel="mask-icon"
+    href="/assets/fav/safari-pinned-tab.svg"
+    color="#1b1d20"
+  />
+  <meta name="msapplication-TileColor" content="#1b1d20" />
+  <meta name="theme-color" content="#1b1d20" />
+  <script src="/assets/fav/themeColor.js" async></script>
+
+  <GTMhead />
+
+  <!-- Fonts & Styles -->
+  <link rel="preconnect" href="https://rsms.me/" />
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+  <!-- {
+    customStylesheets.map((stylesheet) => (
+      <link href={stylesheet} rel="stylesheet" type="text/css" />
+    ))
+  } -->
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/mailgo@0.12.2/dist/mailgo.min.js" defer
+  ></script>
+</head>

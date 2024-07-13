@@ -1,0 +1,22 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+---
+
+<html lang="en">
+  <head>
+    <BaseHead />
+  </head>
+
+  <body class="dark:bg-primary bg-zinc-200">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-NWRH6X5"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"></iframe></noscript
+    >
+    <!-- End Google Tag Manager (noscript) -->
+    <slot />
+  </body>
+</html>

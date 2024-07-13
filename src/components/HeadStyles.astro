@@ -1,0 +1,12 @@
+---
+export interface Props {
+  stylesheets: string[];
+}
+const { stylesheets } = Astro.props;
+---
+
+{
+  stylesheets.map((stylesheet) => (
+    <link href={stylesheet} rel="stylesheet" type="text/css" />
+  ))
+}

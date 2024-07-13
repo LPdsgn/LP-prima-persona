@@ -1,0 +1,12 @@
+---
+export interface Props {
+  scripts: string[];
+}
+const { scripts } = Astro.props;
+---
+
+{
+  scripts.map((script) => (
+    <script src={script} type="text/javascript" />
+  ))
+}

@@ -1,0 +1,25 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Landing from "../layouts/Landing.astro";
+import GTMafterBody from "../components/tracking/GTMafterBody.astro";
+
+const title = "LP Dev Central";
+const description = "This is another experiment";
+const author = "Luigi Pedata";
+---
+
+<html lang="en">
+  <head>
+    <BaseHead
+      title={title}
+      description={description}
+      author={author}
+    />
+  </head>
+
+  <body class="dark:bg-primary bg-zinc-200">
+    <GTMafterBody />
+    <Landing />
+  </body>
+</html>
+ 
