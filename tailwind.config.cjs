@@ -110,6 +110,9 @@ module.exports = {
       translate: {
         'half': '50%',
         'quart': '25%',
+      },
+      spacing: {
+        '1440': '1440px',
       }
     },
   },
