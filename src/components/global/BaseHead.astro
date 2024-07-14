@@ -83,16 +83,64 @@ const { title, description, ogImage, author } = Astro.props
     color="#1b1d20"
   />
   <meta name="msapplication-TileColor" content="#1b1d20" />
-  <meta name="theme-color" content="#1b1d20" />
-  <script src="/assets/fav/themeColor.js" async></script>
+  <meta name="theme-color" content="#1b1d20" id="theme-color-meta" />
+  <script>
+    function setThemeColor() {
+        const themeColorMetaTag = document.getElementById('theme-color-meta');
+        const lightColor = '#e4e4e7';  // Colore per la light mode
+        const darkColor = '#1b1d20';   // Colore per la dark mode
 
-  <GTMhead />
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            themeColorMetaTag.setAttribute('content', darkColor);
+        } else {
+            themeColorMetaTag.setAttribute('content', lightColor);
+        }
+    }
+
+    // Set theme color on page load
+    setThemeColor();
+
+    // Listen for changes in the color scheme
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', setThemeColor);
+  </script>
+  
+  <!-- Google Tag Manager -->
+  <script>
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({
+        "gtm.start": new Date().getTime(),
+        event: "gtm.js",
+      });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != "dataLayer" ? "&l=" + l : "";
+      j.async = true;
+      j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, "script", "dataLayer", "GTM-NWRH6X5");
+  </script>
 
   <!-- Fonts & Styles -->
   <link rel="preconnect" href="https://rsms.me/" />
   <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
 
   <!-- Scripts -->
-  <script src="https://unpkg.com/mailgo@0.12.2/dist/mailgo.min.js" defer
-  ></script>
+  <script src="https://unpkg.com/mailgo@0.12.2/dist/mailgo.min.js" defer></script>
+  <script src="https://unpkg.com/lenis@1.1.5/dist/lenis.min.js" async></script>
+  <script>
+    const lenis = new Lenis()
+
+    lenis.on('scroll', (e) => {
+      console.log(e)
+    })
+
+    function raf(time) {
+      lenis.raf(time)
+      requestAnimationFrame(raf)
+    }
+
+    requestAnimationFrame(raf)
+  </script>
+
 </head>

@@ -1,10 +1,17 @@
 ---
 // Globals
-import BaseHead from "../components/global/BaseHead.astro";
-import GTMafterBody from "../components/global/tracking/GTMafterBody.astro";
-import SpeedInsights from "@vercel/speed-insights/astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
+import BaseHead from '../components/global/BaseHead.astro';
+import GTMafterBody from '../components/global/tracking/GTMafterBody.astro';
+import SpeedInsights from '@vercel/speed-insights/astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title?: string | undefined
+  description?: string | undefined
+  ogImage?: URL | undefined
+}
+
 // Page related
 import About from "../layouts/landing/About.astro";
 import Social from "../layouts/landing/Social.astro";
@@ -16,21 +23,20 @@ import Visio from "../layouts/landing/Visio.astro";
 import Form from "../layouts/landing/Form.astro";
 import Testimonials from "../layouts/landing/Testimonials.astro";
 import Quote from "../layouts/landing/Quote.astro";
+import SpreadProject from '../layouts/landing/Spread_Project.astro'
 ---
 
-<html lang="en">
+<html lang="en" class="lenis">
   <BaseHead
-    title="LP Dev Central"
-    description="This is another experiment"
-  />
+  title="LP Dev Central"
+  description="Luigi Pedata - Designer & Web Developer - Portfolio, Projects, CV, About Me, Contact" />
 
-  <body class="dark:bg-primary bg-zinc-200">
+  <body class="bg-zinc-200 dark:bg-primary min-h-svh flex flex-col items-stretch">
     <GTMafterBody />
-
     <Header />
+    <main
+      class="p-4 grid grid-cols-1 gap-4 list-none lg:grid-cols-3 xl:grid-cols-4  max-w-screen-2xl mx-auto">
 
-    <main class="p-4 grid grid-cols-1 gap-4 list-none lg:grid-cols-3 lg:grid-rows-3 xl:grid-cols-4 xl:grid-rows-4 max-w-screen-2xl mx-auto">
-    
       <About />
       <Social />
       <BigProject />
@@ -43,10 +49,8 @@ import Quote from "../layouts/landing/Quote.astro";
       <Quote />
 
     </main>
-
     <Footer />
-
     <SpeedInsights />
-
   </body>
 </html>
+
