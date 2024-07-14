@@ -18,6 +18,6 @@
   "dependencies": {
     "@astrolib/seo": "^1.0.0-beta.5",
     "@vercel/speed-insights": "^1.0.12",
-    "astro-php": "^0.0.1"
+    "swiper": "^11.1.4"
   }
 }
