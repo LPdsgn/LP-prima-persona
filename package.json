@@ -16,8 +16,11 @@
     "astro": "^4.0.4"
   },
   "dependencies": {
+    "@astrojs/react": "^3.6.0",
     "@astrolib/seo": "^1.0.0-beta.5",
     "@vercel/speed-insights": "^1.0.12",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "swiper": "^11.1.4"
   }
 }

@@ -1,0 +1,72 @@
+---
+// Globals
+import BaseHead from '../components/global/BaseHead.astro';
+import GTMafterBody from '../components/global/tracking/GTMafterBody.astro';
+import SpeedInsights from '@vercel/speed-insights/astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title?: string | undefined
+  description?: string | undefined
+  ogImage?: URL | undefined
+}
+
+// Page related
+import { websiteData } from '../data/WebsitesData.json';
+
+---
+
+<html lang="en" class="lenis">
+  <BaseHead
+  title="LP Dev Central"
+  description="Luigi Pedata - Designer & Web Developer - Portfolio, Projects, CV, About Me, Contact" />
+
+  <body class="bg-zinc-200 dark:bg-primary min-h-svh flex flex-col items-stretch">
+    <GTMafterBody />
+    <Header />
+    <main
+      class="p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-screen-2xl mx-auto">
+
+      <h1 class="text-2xl font-medium tracking-tight text-primary dark:text-white lg:text-9xl md:col-span-2 lg:col-span-3 mt-8 mb-4">Websites</h1>
+      
+      {websiteData.map((website, index) => (
+          <div
+            class="ring-1 dark:ring-white/10 ring-primary/5 bg-white dark:bg-secondary shadow-xl dark:shadow-thick rounded-3xl p-8"
+            data-index={index}
+          >
+            <div class="flex">
+              <img
+              id={`image-${index}`}
+              loading="lazy"
+              class=""
+              src={website.desktopImageSrc}
+              onerror="this.onerror = null; this.src = '/media/var/placeholder.jpg'"
+            />
+            <img
+              id={`image-${index}`}
+              loading="lazy"
+              class=""
+              src={website.mobileImageSrc}
+              onerror="this.onerror = null; this.src = '/media/var/placeholder.jpg'"
+            />
+            </div>
+            <h3><a
+            href={website.publicLink}
+            target="_blank"
+            rel="noopener noreferrer">
+              {website.websiteName} &#8599;
+            </a></h3>
+            <span class="font-extralight text-primary dark:text-white -rotate-45">
+              
+            </span>
+            
+          </div>
+        ))
+      }
+
+    </main>
+    <Footer />
+    <SpeedInsights />
+  </body>
+</html>

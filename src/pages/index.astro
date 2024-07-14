@@ -1,18 +1,16 @@
 ---
 // Globals
-import BaseHead from '../components/global/BaseHead.astro'
-import GTMafterBody from '../components/global/tracking/GTMafterBody.astro'
-import SpeedInsights from '@vercel/speed-insights/astro'
-import Header from '../components/Header.astro'
-import Footer from '../components/Footer.astro'
+import BaseHead from '../components/global/BaseHead.astro';
+import GTMafterBody from '../components/global/tracking/GTMafterBody.astro';
+import SpeedInsights from '@vercel/speed-insights/astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 
 interface Props {
   title?: string | undefined
   description?: string | undefined
   ogImage?: URL | undefined
 }
-
-const { title, description, ogImage } = Astro.props
 
 // Page related
 import About from "../layouts/landing/About.astro";
@@ -28,12 +26,12 @@ import Quote from "../layouts/landing/Quote.astro";
 import SpreadProject from '../layouts/landing/Spread_Project.astro'
 ---
 
-<html lang="en">
+<html lang="en" class="lenis">
   <BaseHead
   title="LP Dev Central"
   description="Luigi Pedata - Designer & Web Developer - Portfolio, Projects, CV, About Me, Contact" />
 
-  <body class="bg-zinc-200 dark:bg-primary">
+  <body class="bg-zinc-200 dark:bg-primary min-h-svh flex flex-col items-stretch">
     <GTMafterBody />
     <Header />
     <main
@@ -49,7 +47,6 @@ import SpreadProject from '../layouts/landing/Spread_Project.astro'
       <Form />
       <Testimonials />
       <Quote />
-      <SpreadProject />
 
     </main>
     <Footer />
