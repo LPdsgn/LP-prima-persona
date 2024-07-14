@@ -1,22 +1,52 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import Landing from "../layouts/Landing.astro";
-import GTMafterBody from "../components/tracking/GTMafterBody.astro";
+// Globals
+import BaseHead from "../components/global/BaseHead.astro";
+import GTMafterBody from "../components/global/tracking/GTMafterBody.astro";
 import SpeedInsights from "@vercel/speed-insights/astro";
-
-const title = "LP Dev Central";
-const description = "This is another experiment";
-const author = "Luigi Pedata";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+// Page related
+import About from "../layouts/landing/About.astro";
+import Social from "../layouts/landing/Social.astro";
+import Portfolio from "../layouts/landing/Portfolio.astro";
+import BigProject from "../layouts/landing/Project0big.astro";
+import Project1 from "../layouts/landing/Project1.astro";
+import Project2 from "../layouts/landing/Project2.astro";
+import Visio from "../layouts/landing/Visio.astro";
+import Form from "../layouts/landing/Form.astro";
+import Testimonials from "../layouts/landing/Testimonials.astro";
+import Quote from "../layouts/landing/Quote.astro";
 ---
 
 <html lang="en">
-  <head>
-    <BaseHead title={title} description={description} author={author} />
-  </head>
+  <BaseHead
+    title="LP Dev Central"
+    description="This is another experiment"
+  />
 
   <body class="dark:bg-primary bg-zinc-200">
     <GTMafterBody />
-    <Landing />
+
+    <Header />
+
+    <main class="p-4 grid grid-cols-1 gap-4 list-none lg:grid-cols-3 lg:grid-rows-3 xl:grid-cols-4 xl:grid-rows-4 max-w-screen-2xl mx-auto">
+    
+      <About />
+      <Social />
+      <BigProject />
+      <Portfolio />
+      <Project1 />
+      <Project2 />
+      <Visio />
+      <Form />
+      <Testimonials />
+      <Quote />
+
+    </main>
+
+    <Footer />
+
     <SpeedInsights />
+
   </body>
 </html>

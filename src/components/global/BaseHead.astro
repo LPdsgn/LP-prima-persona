@@ -1,33 +1,43 @@
 ---
-import "../styles/global.css";
+import "../../styles/global.css";
 import GTMhead from "./tracking/GTMhead.astro";
 // import HeadLinks from "./components/HeadStyles.astro";
 //import HeadScripts from "./components/HeadScripts.astro";
 
-const { title, description, author } = Astro.props;
-let sitename = "";
-let siteURL = "";
-const ogImage = "/media/og/og-lpdsgn-b.jpg";
-
-// Check if the code is running in the browser
-if (typeof window !== "undefined") {
-  const url = new URL(window.location.href);
-  sitename = url.hostname;
-  siteURL = url.origin;
+interface Props {
+  title?: string | undefined
+  description?: string | undefined
+  ogImage?: URL | undefined
+  author?: string | "Luigi Pedata"
 }
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site)
+let sitename = Astro.url;
+let siteURL = Astro.site;
+
+if (Astro.props.ogImage === undefined) {
+  Astro.props.ogImage = new URL('/media/og/og-lpdsgn-b.jpg', canonicalURL)
+}
+
+const { title, description, ogImage, author } = Astro.props
+
 ---
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta charset="UTF-8" />
+  <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
   <!--Meta-->
   <title>{title}</title>
   <meta name="description" content={description} />
   <meta name="author" content={author} />
+  <link rel="canonical" href={canonicalURL} />
 
   <!-- Open Graph Meta Tags -->
+  <meta property="og:type" content="website" />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:site_name" content={sitename} />
@@ -41,9 +51,12 @@ if (typeof window !== "undefined") {
   <meta property="og:image:height" content="630" />
 
   <!-- Twitter Card Meta Tags -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:site" content="" />
-  <meta name="twitter:creator" content="" />
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:site" content={sitename} />
+  <meta property="twitter:url" content={siteURL} />
+  <meta property="twitter:title" content={title} />
+  <meta property="twitter:description" content={description} />
+  <meta property="twitter:image" content={ogImage} />
 
   <!-- Favicon guidelines generated with https://favicon.io/ -->
   <link
