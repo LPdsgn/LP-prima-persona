@@ -1,5 +1,5 @@
 ---
-import BasicLayout from "./BaseLayout.astro";
+import BasicLayout from "./BasicLayout.astro";
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import SpeedInsights from '@vercel/speed-insights/astro';
@@ -16,8 +16,8 @@ const { title, description, ogImage, author } = Astro.props
 ---
 
 <BasicLayout title={title} description={description}>
-    <Header slot="header" />
+  <Header />
     <slot />
-    <Footer slot="footer" />
+  <Footer />
+  <SpeedInsights />
 </BasicLayout>
-<SpeedInsights />
