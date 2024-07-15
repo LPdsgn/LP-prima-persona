@@ -1,0 +1,83 @@
+---
+interface Props {
+  height?: string;
+  colStart?: string;
+  colSpan?: string;
+  rowStart?: string;
+  rowSpan?: string;
+  flexDir?: string;
+  flexWrap?: string;
+  gap?: any;
+  spacing?: any;
+  round?: any;
+  href?: string;
+  target?: string;
+  rel?: string;
+  children: any;
+  moreSlotClasses : any;
+}
+
+const { height, colSpan, colStart, rowSpan, rowStart, flexDir, flexWrap, gap, spacing, round, href, target, rel, children } = Astro.props;
+
+const baseClass = `flex justify-between relative overflow-hidden bg-white dark:bg-secondary shadow-xl dark:shadow-thick duration-300 ring-1 ring-primary/5 hover:ring-primary/5 dark:ring-white/10 dark:hover:ring-white/20
+    ${height || 'h-full'} 
+    ${colStart || ''}
+    ${rowStart || ''}
+    ${colSpan || ''}
+    ${rowSpan || ''}
+    ${flexDir || 'flex-col'}
+    ${flexWrap || ''}
+    p-${spacing || '8'}
+    gap-${gap || '8'}
+    rounded${round || '-3xl'}
+`;
+
+const moreClass = `-${parseInt(gap || '4') / 2}`;
+let moreSlotClasses = '';
+
+if (flexDir === 'flex-col') {
+  moreSlotClasses = `-mx${moreClass} -mb${moreClass}`;
+} else if (flexDir === 'flex-row') {
+  moreSlotClasses = `-my${moreClass} -mr${moreClass}`;
+} else if (flexDir === 'flex-row-reverse') {
+  moreSlotClasses = `-my${moreClass} -ml${moreClass}`;
+}
+
+/* Example implementation */
+/*
+<Card
+    colStart="col-start-1"
+    colSpan="col-span-1"
+    rowStart="row-start-1"
+    rowSpan="row-span-1"
+    round="-3xl"
+    spacing="8"
+    gap="8"
+>
+    <div slot="trailing">Extra Info</div>
+    <div slot="content" class="text-xl font-bold text-gray-800">Card Title 1</div>
+    <div slot="more" class={`bg-gray-100 p-4 rounded-lg`}>More details here...</div>
+</Card>
+*/
+---
+
+{href ? (
+  <a
+    href={href}
+    target={target}
+    rel={rel}
+    class={baseClass}
+  >
+    <slot name="trailing" />
+    <slot name="content" />
+    <slot name="more" />
+  </a>
+) : (
+  <div class={baseClass}>
+    <slot name="trailing" />
+    <slot name="content" />
+    <slot name="more" />
+  </div>
+)}
+
+
