@@ -1,16 +1,6 @@
 ---
 // Globals
-import BaseHead from '../components/global/BaseHead.astro';
-import GTMafterBody from '../components/global/tracking/GTMafterBody.astro';
-import SpeedInsights from '@vercel/speed-insights/astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-
-interface Props {
-  title?: string | undefined
-  description?: string | undefined
-  ogImage?: URL | undefined
-}
+import Layout from "../layouts/Layout.astro";
 
 // Page related
 import About from "../layouts/landing/About.astro";
@@ -26,31 +16,24 @@ import Quote from "../layouts/landing/Quote.astro";
 import SpreadProject from '../layouts/landing/Spread_Project.astro'
 ---
 
-<html lang="en" class="lenis">
-  <BaseHead
+<Layout
   title="LP Dev Central"
-  description="Luigi Pedata - Designer & Web Developer - Portfolio, Projects, CV, About Me, Contact" />
+  description="Luigi Pedata - Designer & Web Developer"
+/>
+  <main
+    slot="main"
+    class="p-4 grid grid-cols-1 gap-4 list-none lg:grid-cols-3 xl:grid-cols-4  max-w-screen-2xl mx-auto">
 
-  <body class="bg-zinc-200 dark:bg-primary min-h-svh flex flex-col items-stretch">
-    <GTMafterBody />
-    <Header />
-    <main
-      class="p-4 grid grid-cols-1 gap-4 list-none lg:grid-cols-3 xl:grid-cols-4  max-w-screen-2xl mx-auto">
+    <About />
+    <Social />
+    <BigProject />
+    <Portfolio />
+    <Project1 />
+    <Project2 />
+    <Visio />
+    <Form />
+    <Testimonials />
+    <Quote />
 
-      <About />
-      <Social />
-      <BigProject />
-      <Portfolio />
-      <Project1 />
-      <Project2 />
-      <Visio />
-      <Form />
-      <Testimonials />
-      <Quote />
-
-    </main>
-    <Footer />
-    <SpeedInsights />
-  </body>
-</html>
-
+  </main>
+</Layout>
