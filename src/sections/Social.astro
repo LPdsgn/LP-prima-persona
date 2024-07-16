@@ -1,15 +1,21 @@
-<div
-  class="ring-1 dark:ring-white/10 ring-primary/5 rounded-3xl justify-between shadow-xl dark:shadow-thick items-center flex flex-col p-8 h-full bg-white dark:bg-secondary"
+---
+import Card from "../components/card/Card.astro"
+---
+
+<Card
+  align="center"
+  justify="between"
 >
-  <div class="w-full">
-    <h2
-      class="text-xl font-medium tracking-tight text-primary dark:text-white lg:text-8xl"
-    >
-      Find me on
-    </h2>
-  </div>
-  <div
-    class="grid mt-4 grid-cols-4 md:grid-cols-8 lg:grid-cols-4 gap-y-4 gap-4 justify-center w-full"
+
+  <h2
+    slot="trailing"
+    class="text-xl font-medium tracking-tight text-primary dark:text-white lg:text-8xl"
+  >
+    Find me on
+  </h2>
+
+  <div slot="more"
+    class="flex gap-4 justify-between w-full"
   >
     <!--Email-->
     <a
@@ -95,4 +101,5 @@
       >
     </a>
   </div>
-</div>
+
+</Card>

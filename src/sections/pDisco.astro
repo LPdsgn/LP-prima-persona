@@ -1,7 +1,16 @@
-<div
-  class="ring-1 lg:row-start-3 h-full flex flex-col justify-between p-8 hover:ring-primary/5 dark:hover:ring-white/20 dark:ring-white/10 ring-primary/5 relative rounded-3xl overflow-hidden bg-white dark:bg-secondary shadow-xl dark:shadow-thick"
+---
+import Card from '../components/card/Card.astro';
+import { Image, Picture } from 'astro:assets';
+import video from '../media/ada/disco.mp4';
+import poster from '../media/ada/disco-poster.png';
+---
+
+<Card
+    rowStart="lg:row-start-3" 
+    justify='between'
 >
-  <div>
+
+  <div slot="content">
     <h3
       class="text-xl lg:text-2xl tracking-tight font-medium text-primary dark:text-white"
     >
@@ -11,15 +20,16 @@
       A quick showcase of the restyling i made in a more native iOs UI guise
     </p>
   </div>
-  <div class="mt-4 -ml-4 -mb-4 -mr-4">
+
+  <div slot="more" class="-mx-4 -mb-4">
     <video
-      poster="/media/ada/disco-poster.png"
-      src="/media/ada/disco.mp4"
+      poster={poster.src}
+      src={video}
       class="rounded-2xl object-cover ring-1 w-full lg:h-auto dark:ring-white/10 ring-primary/5 bg-tertiary"
       autoplay
       muted
       loop
-    >
-    </video>
+    ></video>
   </div>
-</div>
+
+</Card>

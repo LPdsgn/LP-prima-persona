@@ -6,8 +6,6 @@ const colors = require("tailwindcss/colors");
 module.exports = {
   content: [
     './src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}',
-    './node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}',
-    './node_modules/preline/preline.js',
   ],
   theme: {
     fontFamily: {
@@ -122,11 +120,8 @@ module.exports = {
       }
     },
   },
-  darkMode: "class",
   plugins: [
     require('@tailwindcss/typography'),
-    nextui(),
-    require('preline/plugin'),
     // ...
   ],
 }

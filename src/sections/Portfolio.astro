@@ -1,5 +1,13 @@
-<div class="ring-1 dark:ring-white/10 ring-primary/5 flex flex-col justify-between items-center rounded-3xl shadow-xl dark:shadow-thick p-8 bg-white dark:bg-secondary overflow-hidden text-center lg:text-left">
-  <div>
+---
+import Card from "../components/card/Card.astro"
+---
+
+<Card
+ align="center"
+ justify="between"
+>
+
+  <div slot="trailing">
     <h2
       class="text-xl font-medium text-primary dark:text-white lg:text-7xl tracking-tight"
     >
@@ -11,7 +19,8 @@
       Explore the tapestry of my professional journey and accomplishments.
     </p>
   </div>
-  <div class="w-full mt-8 md:max-w-xs lg:max-w-none">
+
+  <div slot="more" class="w-full md:max-w-xs lg:max-w-none">
     <a
       href="/assets/LP-Portfolio.pdf"
       download="Portfolio Luigi Pedata"
@@ -35,4 +44,8 @@
       >
     </a>
   </div>
-</div>
+
+</Card>
+
+  
+  

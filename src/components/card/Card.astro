@@ -9,17 +9,19 @@ interface Props {
   flexWrap?: string;
   gap?: any;
   spacing?: any;
+  align?: string;
+  justify?: string;
   round?: any;
   href?: string;
   target?: string;
   rel?: string;
   children: any;
-  moreSlotClasses : any;
+  /* moreSlotClasses : any; */
 }
 
-const { height, colSpan, colStart, rowSpan, rowStart, flexDir, flexWrap, gap, spacing, round, href, target, rel, children } = Astro.props;
+const { height, colSpan, colStart, rowSpan, rowStart, flexDir, flexWrap, gap, spacing, align, justify, round, href, target, rel, children } = Astro.props;
 
-const baseClass = `flex justify-between relative overflow-hidden bg-white dark:bg-secondary shadow-xl dark:shadow-thick duration-300 ring-1 ring-primary/5 hover:ring-primary/5 dark:ring-white/10 dark:hover:ring-white/20
+const baseClass = `flex overflow-hidden bg-white dark:bg-secondary shadow-xl dark:shadow-thick duration-300 ring-1 ring-primary/5 hover:ring-primary/5 dark:ring-white/10 dark:hover:ring-white/20
     ${height || 'h-full'} 
     ${colStart || ''}
     ${rowStart || ''}
@@ -28,11 +30,13 @@ const baseClass = `flex justify-between relative overflow-hidden bg-white dark:b
     ${flexDir || 'flex-col'}
     ${flexWrap || ''}
     p-${spacing || '8'}
-    gap-${gap || '8'}
+    gap-${gap || '6'}
+    items-${align || 'start'}
+    justify-${justify || 'start'}
     rounded${round || '-3xl'}
 `;
 
-const moreClass = `-${parseInt(gap || '4') / 2}`;
+/* const moreClass = `-${parseInt(gap || '4') / 2}`;
 let moreSlotClasses = '';
 
 if (flexDir === 'flex-col') {
@@ -41,7 +45,7 @@ if (flexDir === 'flex-col') {
   moreSlotClasses = `-my${moreClass} -mr${moreClass}`;
 } else if (flexDir === 'flex-row-reverse') {
   moreSlotClasses = `-my${moreClass} -ml${moreClass}`;
-}
+} */
 
 /* Example implementation */
 /*

@@ -1,10 +1,22 @@
-<div
-  class="lg:row-span-1 ring-1 dark:ring-white/10 ring-primary/5 bg-white dark:bg-secondary shadow-xl dark:shadow-thick rounded-3xl p-8"
+---
+import Card from "../components/card/Card.astro"
+import { Image } from "astro:assets";
+import avatar from '../media/avatar/avatar_lp.jpg';
+---
+
+<Card
+  rowSpan="lg:row-span-1"
+
 >
-  <div class="relative flex items-center gap-x-4">
-    <img
-      src="/media/avatar/avatar_ai.jpg"
+
+  <div slot="trailing"
+  class="relative flex items-center gap-x-4"
+  >
+    <Image
+      src={avatar}
       alt=""
+      width={50}
+      height={50}
       class="h-10 w-10 rounded-full ring-1 dark:ring-white/10 ring-primary/5"
     />
     <div class="text-sm leading-6">
@@ -19,20 +31,22 @@
       </p>
     </div>
   </div>
-  <p
-    class="text-3xl mt-6 font-medium lg:text-4xl tracking-tight text-primary dark:text-white"
-  >
-    Hello stranger!
-  </p>
-  <h1
-    class="mt-4 text-sm text-zinc-500 dark:text-zinc-400 font-light lg:text-xl"
-  >
-    I'm <b class="font-medium">Luigi</b>, a multidisciplinary designer and web
-    developer. I do graphics, websites, interfaces, brand identities.
-  </h1>
-  <p
-    class="mt-4 text-sm text-zinc-500 dark:text-zinc-400 font-light lg:text-xl"
-  >
-    This is another <b class="font-medium">experiment</b>. Feel free to browse it, share it and get in touch.
-  </p>
-</div>
+
+  <div slot="content">
+    <p class="text-3xl font-medium lg:text-4xl tracking-tight text-primary dark:text-white">
+      Hello stranger!
+    </p>
+    <h1
+      class="mt-4 text-sm text-zinc-500 dark:text-zinc-400 font-light lg:text-xl"
+    >
+      I'm <b class="font-medium">Luigi</b>, a multidisciplinary designer and web
+      developer. I do graphics, websites, interfaces, brand identities.
+    </h1>
+    <p
+      class="mt-4 text-sm text-zinc-500 dark:text-zinc-400 font-light lg:text-xl"
+    >
+      This is another <b class="font-medium">experiment</b>. Feel free to browse it, share it and get in touch.
+    </p>
+  </div>
+
+</Card>

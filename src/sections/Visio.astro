@@ -1,11 +1,21 @@
-<a
+---
+// import the Image component and the image
+import Card from '../components/card/Card.astro';
+import { Image, Picture } from 'astro:assets';
+import video from '../media/visio.mp4';
+import poster from '../media/visio.jpg';
+---
+
+<Card
   href="https://www.visiodp.com/"
-  class="lg:row-span-2 ring-1 dark:ring-white/10 ring-primary/5 hover:ring-primary/5 bg-white dark:bg-secondary dark:hover:ring-white/20 overflow-hidden duration-300 shadow-xl dark:shadow-thick rounded-3xl p-8"
+  target='_blank'
+  rowSpan="lg:row-span-2"
 >
-  <div class="-ml-4 -mt-4 -mr-4">
+
+  <div slot="content" class="-ml-4 -mt-4 -mr-4">
     <video
-      poster="/media/visio.jpg"
-      src="/media/visio.mp4"
+      poster={poster.src}
+      src={video}
       class="rounded-2xl object-cover ring-1 h-64 w-full lg:h-auto dark:ring-white/10 ring-primary/5 bg-tertiary"
       autoplay
       muted
@@ -13,7 +23,9 @@
     >
     </video>
   </div>
-  <div class="mt-8">
+
+  <div slot="more">
+
     <div class="flex justify-between">
       <span class="font-medium text-primary dark:text-white">
         Currently hustling at
@@ -31,5 +43,7 @@
       that want to develop, optimise, and scale their business in the digital
       world.
     </p>
+
   </div>
-</a>
+
+</Card>

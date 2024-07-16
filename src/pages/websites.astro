@@ -2,6 +2,7 @@
 // Globals
 import Layout from '../layouts/Layout.astro'
 import Pulse from '../components/Pulse.astro';
+import { Image, Picture } from 'astro:assets';
 
 // Page related
 import { websiteData } from '../data/WebsitesData.json';
@@ -42,18 +43,16 @@ import { websiteData } from '../data/WebsitesData.json';
           website.online ? '' : 'opacity-25'
           }`}>
             <img
-            id={`image-${index}`}
             loading="lazy"
             class="aspect-[16/10] h-auto w-5/6 object-cover object-top rounded lg:rounded-lg shadow-md dark:shadow-thick"
             src={website.desktopImageSrc}
-            onerror="this.onerror = null; this.src = '/media/var/placeholder.jpg'"
+            onerror="this.onerror = null; this.src = '/media/websites/placeholder.jpg'"
           />
           <img
-            id={`image-${index}`}
             loading="lazy"
             class="aspect-[6/13] h-auto w-1/6 object-cover object-center rounded-md -ml-5 flex-grow shadow-md dark:shadow-thick"
             src={website.mobileImageSrc}
-            onerror="this.onerror = null; this.src = '/media/var/placeholder.jpg'"
+            onerror="this.onerror = null; this.src = '/media/websites/placeholder.jpg'"
           />
           </div>
           <div class="flex justify-between items-center mt-4 text-primary dark:text-white">
