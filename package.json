@@ -18,7 +18,12 @@
   "dependencies": {
     "@astrojs/react": "^3.6.0",
     "@astrolib/seo": "^1.0.0-beta.5",
+    "@headlessui/react": "^2.1.2",
+    "@heroicons/react": "^2.1.5",
+    "@nextui-org/react": "^2.4.2",
     "@vercel/speed-insights": "^1.0.12",
+    "framer-motion": "^11.3.2",
+    "preline": "^2.3.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "swiper": "^11.1.4"

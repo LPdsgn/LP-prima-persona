@@ -1,13 +1,15 @@
-<header
-  class="sticky top-0 z-50 px-4 bg-background/95 dark:bg-secondary/60 backdrop-blur supports-[backdrop-filter]:bg-background/60
-   dark:ring-white/10 ring-primary/5 shadow-xl dark:shadow-thick"
+---
+
+---
+
+<header id="navbar" class="sticky top-0 z-50 px-4 dark:border-white/15 border-primary/15 border-b-1 duration-150"
 >
   <div
     class="flex py-4 items-center space-x-4 sm:justify-between sm:space-x-0"
   >
     <div class="flex gap-6 md:gap-10">
       <a href="/" class="flex items-center space-x-2 tracking-tight text-primary dark:text-white">
-        <span class="inline-block font-bold">LP Dev Central</span>
+        <span class="inline-block font-bold display wide">LP Dev Central</span>
       </a>
     </div>
     <div class="flex flex-1 items-center justify-end space-x-4">
@@ -23,4 +25,23 @@
       </nav>
     </div>
   </div>
+  <script>
+    document.addEventListener('scroll', function() {
+      const header = document.getElementById('navbar');
+      const classes = [
+        'shadow-xl', 
+        'dark:shadow-thick', 
+        'bg-background/95', 
+        'dark:bg-secondary/75', 
+        'backdrop-blur', 
+        'supports-[backdrop-filter]:bg-background/75'
+      ];
+
+      if (window.scrollY > 10) {
+        header.classList.add(...classes);
+      } else {
+        header.classList.remove(...classes);
+      }
+    });
+  </script>
 </header>

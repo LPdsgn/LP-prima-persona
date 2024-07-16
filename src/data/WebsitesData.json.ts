@@ -71,7 +71,7 @@ export const websiteData: WebsiteData[] = [
     publicLink: "https://monsterhouse.ch/",
     websiteName: "monsterhouse.ch",
     tags: ["Showcase","Portfolio"],
-  online: true,
+  online: false,
 },
   {
     desktopImageSrc: "/media/websites/belcuore-d-648caf4d193d6.webp",

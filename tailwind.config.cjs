@@ -1,9 +1,18 @@
+const { nextui } = require("@nextui-org/react");
+
 /** @type {import('tailwindcss').Config} */
 const defaultTheme = require("tailwindcss/defaultTheme");
 const colors = require("tailwindcss/colors");
 module.exports = {
-  content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+  content: [
+    './src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}',
+    './node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}',
+    './node_modules/preline/preline.js',
+  ],
   theme: {
+    fontFamily: {
+      sans: ["Inter", ...defaultTheme.fontFamily.sans],
+    },
     fontSize: {
       xs: [
         "0.75rem",
@@ -104,9 +113,6 @@ module.exports = {
         "5xl": "3rem",
         "6xl": "5rem",
       },
-      fontFamily: {
-        sans: ["Inter", ...defaultTheme.fontFamily.sans],
-      },
       translate: {
         'half': '50%',
         'quart': '25%',
@@ -116,8 +122,11 @@ module.exports = {
       }
     },
   },
+  darkMode: "class",
   plugins: [
     require('@tailwindcss/typography'),
+    nextui(),
+    require('preline/plugin'),
     // ...
   ],
 }
