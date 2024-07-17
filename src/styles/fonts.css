@@ -1,0 +1,288 @@
+@font-face {
+    font-family: 'Mona Sans';
+    src: url('assets/font/MonaS/MonaSans-Black.eot');
+    src: url('assets/font/MonaS/MonaSans-Black.eot?#iefix') format('embedded-opentype'),
+        url('assets/font/MonaS/MonaSans-Black.woff2') format('woff2'),
+        url('assets/font/MonaS/MonaSans-Black.woff') format('woff'),
+        url('assets/font/MonaS/MonaSans-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans Expanded';
+    src: url('assets/font/MonaS/MonaSansExpanded-Black.eot');
+    src: url('assets/font/MonaS/MonaSansExpanded-Black.eot?#iefix') format('embedded-opentype'),
+        url('assets/font/MonaS/MonaSansExpanded-Black.woff2') format('woff2'),
+        url('assets/font/MonaS/MonaSansExpanded-Black.woff') format('woff'),
+        url('assets/font/MonaS/MonaSansExpanded-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans Condensed';
+    src: url('assets/font/MonaS/MonaSansCondensed-BoldItalic.eot');
+    src: url('assets/font/MonaS/MonaSansCondensed-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('assets/font/MonaS/MonaSansCondensed-BoldItalic.woff2') format('woff2'),
+        url('assets/font/MonaS/MonaSansCondensed-BoldItalic.woff') format('woff'),
+        url('assets/font/MonaS/MonaSansCondensed-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans Expanded';
+    src: url('assets/font/MonaS/MonaSansExpanded-BlackItalic.eot');
+    src: url('assets/font/MonaS/MonaSansExpanded-BlackItalic.eot?#iefix') format('embedded-opentype'),
+        url('assets/font/MonaS/MonaSansExpanded-BlackItalic.woff2') format('woff2'),
+        url('assets/font/MonaS/MonaSansExpanded-BlackItalic.woff') format('woff'),
+        url('assets/font/MonaS/MonaSansExpanded-BlackItalic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans';
+    src: url('assets/font/MonaS/MonaSans-ExtraBoldItalic.eot');
+    src: url('assets/font/MonaS/MonaSans-ExtraBoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('assets/font/MonaS/MonaSans-ExtraBoldItalic.woff2') format('woff2'),
+        url('assets/font/MonaS/MonaSans-ExtraBoldItalic.woff') format('woff'),
+        url('assets/font/MonaS/MonaSans-ExtraBoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans Condensed';
+    src: url('assets/font/MonaS/MonaSansCondensed-BlackItalic.eot');
+    src: url('assets/font/MonaS/MonaSansCondensed-BlackItalic.eot?#iefix') format('embedded-opentype'),
+        url('assets/font/MonaS/MonaSansCondensed-BlackItalic.woff2') format('woff2'),
+        url('assets/font/MonaS/MonaSansCondensed-BlackItalic.woff') format('woff'),
+        url('assets/font/MonaS/MonaSansCondensed-BlackItalic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans';
+    src: url('assets/font/MonaS/MonaSans-BlackItalic.eot');
+    src: url('assets/font/MonaS/MonaSans-BlackItalic.eot?#iefix') format('embedded-opentype'),
+        url('assets/font/MonaS/MonaSans-BlackItalic.woff2') format('woff2'),
+        url('assets/font/MonaS/MonaSans-BlackItalic.woff') format('woff'),
+        url('assets/font/MonaS/MonaSans-BlackItalic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans Condensed';
+    src: url('assets/font/MonaS/MonaSansCondensed-ExtraBold.eot');
+    src: url('assets/font/MonaS/MonaSansCondensed-ExtraBold.eot?#iefix') format('embedded-opentype'),
+        url('assets/font/MonaS/MonaSansCondensed-ExtraBold.woff2') format('woff2'),
+        url('assets/font/MonaS/MonaSansCondensed-ExtraBold.woff') format('woff'),
+        url('assets/font/MonaS/MonaSansCondensed-ExtraBold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans Condensed';
+    src: url('assets/font/MonaS/MonaSansCondensed-SemiBoldItalic.eot');
+    src: url('assets/font/MonaS/MonaSansCondensed-SemiBoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('assets/font/MonaS/MonaSansCondensed-SemiBoldItalic.woff2') format('woff2'),
+        url('assets/font/MonaS/MonaSansCondensed-SemiBoldItalic.woff') format('woff'),
+        url('assets/font/MonaS/MonaSansCondensed-SemiBoldItalic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans';
+    src: url('assets/font/MonaS/MonaSans-SemiBold.eot');
+    src: url('assets/font/MonaS/MonaSans-SemiBold.eot?#iefix') format('embedded-opentype'),
+        url('assets/font/MonaS/MonaSans-SemiBold.woff2') format('woff2'),
+        url('assets/font/MonaS/MonaSans-SemiBold.woff') format('woff'),
+        url('assets/font/MonaS/MonaSans-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans';
+    src: url('assets/font/MonaS/MonaSans-Bold.eot');
+    src: url('assets/font/MonaS/MonaSans-Bold.eot?#iefix') format('embedded-opentype'),
+        url('assets/font/MonaS/MonaSans-Bold.woff2') format('woff2'),
+        url('assets/font/MonaS/MonaSans-Bold.woff') format('woff'),
+        url('assets/font/MonaS/MonaSans-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans Condensed';
+    src: url('assets/font/MonaS/MonaSansCondensed-Bold.eot');
+    src: url('assets/font/MonaS/MonaSansCondensed-Bold.eot?#iefix') format('embedded-opentype'),
+        url('assets/font/MonaS/MonaSansCondensed-Bold.woff2') format('woff2'),
+        url('assets/font/MonaS/MonaSansCondensed-Bold.woff') format('woff'),
+        url('assets/font/MonaS/MonaSansCondensed-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans Condensed';
+    src: url('assets/font/MonaS/MonaSansCondensed-ExtraBoldItalic.eot');
+    src: url('assets/font/MonaS/MonaSansCondensed-ExtraBoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('assets/font/MonaS/MonaSansCondensed-ExtraBoldItalic.woff2') format('woff2'),
+        url('assets/font/MonaS/MonaSansCondensed-ExtraBoldItalic.woff') format('woff'),
+        url('assets/font/MonaS/MonaSansCondensed-ExtraBoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans';
+    src: url('assets/font/MonaS/MonaSans-SemiBoldItalic.eot');
+    src: url('assets/font/MonaS/MonaSans-SemiBoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('assets/font/MonaS/MonaSans-SemiBoldItalic.woff2') format('woff2'),
+        url('assets/font/MonaS/MonaSans-SemiBoldItalic.woff') format('woff'),
+        url('assets/font/MonaS/MonaSans-SemiBoldItalic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans';
+    src: url('assets/font/MonaS/MonaSans-ExtraBold.eot');
+    src: url('assets/font/MonaS/MonaSans-ExtraBold.eot?#iefix') format('embedded-opentype'),
+        url('assets/font/MonaS/MonaSans-ExtraBold.woff2') format('woff2'),
+        url('assets/font/MonaS/MonaSans-ExtraBold.woff') format('woff'),
+        url('assets/font/MonaS/MonaSans-ExtraBold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans Condensed';
+    src: url('assets/font/MonaS/MonaSansCondensed-Black.eot');
+    src: url('assets/font/MonaS/MonaSansCondensed-Black.eot?#iefix') format('embedded-opentype'),
+        url('assets/font/MonaS/MonaSansCondensed-Black.woff2') format('woff2'),
+        url('assets/font/MonaS/MonaSansCondensed-Black.woff') format('woff'),
+        url('assets/font/MonaS/MonaSansCondensed-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans Condensed';
+    src: url('assets/font/MonaS/MonaSansCondensed-SemiBold.eot');
+    src: url('assets/font/MonaS/MonaSansCondensed-SemiBold.eot?#iefix') format('embedded-opentype'),
+        url('assets/font/MonaS/MonaSansCondensed-SemiBold.woff2') format('woff2'),
+        url('assets/font/MonaS/MonaSansCondensed-SemiBold.woff') format('woff'),
+        url('assets/font/MonaS/MonaSansCondensed-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans';
+    src: url('assets/font/MonaS/MonaSans-BoldItalic.eot');
+    src: url('assets/font/MonaS/MonaSans-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('assets/font/MonaS/MonaSans-BoldItalic.woff2') format('woff2'),
+        url('assets/font/MonaS/MonaSans-BoldItalic.woff') format('woff'),
+        url('assets/font/MonaS/MonaSans-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans Expanded';
+    src: url('assets/font/MonaS/MonaSansExpanded-ExtraBoldItalic.eot');
+    src: url('assets/font/MonaS/MonaSansExpanded-ExtraBoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('assets/font/MonaS/MonaSansExpanded-ExtraBoldItalic.woff2') format('woff2'),
+        url('assets/font/MonaS/MonaSansExpanded-ExtraBoldItalic.woff') format('woff'),
+        url('assets/font/MonaS/MonaSansExpanded-ExtraBoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans Expanded';
+    src: url('assets/font/MonaS/MonaSansExpanded-SemiBold.eot');
+    src: url('assets/font/MonaS/MonaSansExpanded-SemiBold.eot?#iefix') format('embedded-opentype'),
+        url('assets/font/MonaS/MonaSansExpanded-SemiBold.woff2') format('woff2'),
+        url('assets/font/MonaS/MonaSansExpanded-SemiBold.woff') format('woff'),
+        url('assets/font/MonaS/MonaSansExpanded-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans Expanded';
+    src: url('assets/font/MonaS/MonaSansExpanded-BoldItalic.eot');
+    src: url('assets/font/MonaS/MonaSansExpanded-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('assets/font/MonaS/MonaSansExpanded-BoldItalic.woff2') format('woff2'),
+        url('assets/font/MonaS/MonaSansExpanded-BoldItalic.woff') format('woff'),
+        url('assets/font/MonaS/MonaSansExpanded-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans Expanded';
+    src: url('assets/font/MonaS/MonaSansExpanded-ExtraBold.eot');
+    src: url('assets/font/MonaS/MonaSansExpanded-ExtraBold.eot?#iefix') format('embedded-opentype'),
+        url('assets/font/MonaS/MonaSansExpanded-ExtraBold.woff2') format('woff2'),
+        url('assets/font/MonaS/MonaSansExpanded-ExtraBold.woff') format('woff'),
+        url('assets/font/MonaS/MonaSansExpanded-ExtraBold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans Expanded';
+    src: url('assets/font/MonaS/MonaSansExpanded-Bold.eot');
+    src: url('assets/font/MonaS/MonaSansExpanded-Bold.eot?#iefix') format('embedded-opentype'),
+        url('assets/font/MonaS/MonaSansExpanded-Bold.woff2') format('woff2'),
+        url('assets/font/MonaS/MonaSansExpanded-Bold.woff') format('woff'),
+        url('assets/font/MonaS/MonaSansExpanded-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans Expanded';
+    src: url('assets/font/MonaS/MonaSansExpanded-SemiBoldItalic.eot');
+    src: url('assets/font/MonaS/MonaSansExpanded-SemiBoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('assets/font/MonaS/MonaSansExpanded-SemiBoldItalic.woff2') format('woff2'),
+        url('assets/font/MonaS/MonaSansExpanded-SemiBoldItalic.woff') format('woff'),
+        url('assets/font/MonaS/MonaSansExpanded-SemiBoldItalic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+

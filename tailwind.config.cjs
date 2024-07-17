@@ -10,6 +10,7 @@ module.exports = {
   theme: {
     fontFamily: {
       sans: ["Inter", ...defaultTheme.fontFamily.sans],
+      sans: ['"Mona Sans"', ...defaultTheme.fontFamily.sans],
     },
     fontSize: {
       xs: [

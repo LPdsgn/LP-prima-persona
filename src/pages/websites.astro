@@ -32,7 +32,7 @@ import { websiteData } from '../data/WebsitesData.json';
 
     {websiteData.map((website, index) => (
         <a
-          class="ring-1 dark:ring-white/10 ring-primary/5 dark:hover:ring-white/20 hover:ring-primary/5 duration-300
+          class="w-full ring-1 dark:ring-white/10 ring-primary/5 dark:hover:ring-white/20 hover:ring-primary/5 duration-300
           bg-white dark:bg-secondary shadow-xl dark:shadow-thick rounded-2xl lg:rounded-3xl px-6 pt-6 pb-5 lg:px-8 lg:pt-8 lg:pb-7"
           data-index={index}
           href={website.publicLink}
@@ -83,5 +83,5 @@ import { websiteData } from '../data/WebsitesData.json';
       ))
     }
 
-  </main>
+  </div>
 </Layout>

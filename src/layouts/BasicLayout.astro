@@ -21,7 +21,7 @@ const { title, description, ogImage, author } = Astro.props
 ---
 
 <!doctype html>
-<html lang="en" class="lenis dark">
+<html lang="en" class="lenis dark bg-zinc-200 dark:bg-primary">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charset="UTF-8" />
@@ -116,8 +116,9 @@ const { title, description, ogImage, author } = Astro.props
     <link rel="preload" href="/assets/font/Mona-Sans.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/font/Mona-Sans.ttf" as="font" type="font/woff2" crossorigin>
     <!-- Scripts -->
-    <script src="https://unpkg.com/mailgo@0.12.2/dist/mailgo.min.js" defer></script>
-    <script src="https://unpkg.com/lenis@1.1.5/dist/lenis.min.js" async></script>
+    <script defer src="https://unpkg.com/mailgo@0.12.2/dist/mailgo.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+    <script async src="https://unpkg.com/lenis@1.1.5/dist/lenis.min.js" ></script>
     <script>
       const lenis = new Lenis()
       lenis.on('scroll', (e) => {
@@ -128,6 +129,15 @@ const { title, description, ogImage, author } = Astro.props
         requestAnimationFrame(raf)
       }
       requestAnimationFrame(raf)
+    </script>
+    <script>
+      window.addEventListener('load', function() {
+        document.body.style.opacity = 1;
+      });
+      window.addEventListener('beforeunload', function() {
+        document.body.style.transition = 'opacity 900ms';
+        document.body.style.opacity = 0;
+      });
     </script>
   </head>
 
