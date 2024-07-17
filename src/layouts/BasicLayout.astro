@@ -1,6 +1,7 @@
 ---
 // Globals
 import "../styles/global.css";
+import { ViewTransitions } from 'astro:transitions';
 
 interface Props {
   title?: string | undefined
@@ -130,15 +131,7 @@ const { title, description, ogImage, author } = Astro.props
       }
       requestAnimationFrame(raf)
     </script>
-    <script>
-      window.addEventListener('load', function() {
-        document.body.style.opacity = 1;
-      });
-      window.addEventListener('beforeunload', function() {
-        document.body.style.transition = 'opacity 900ms';
-        document.body.style.opacity = 0;
-      });
-    </script>
+    <ViewTransitions />
   </head>
 
   <body class="bg-zinc-200 dark:bg-primary min-h-svh flex flex-col items-stretch">

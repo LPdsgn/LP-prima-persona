@@ -16,8 +16,10 @@ const { title, description, ogImage, author } = Astro.props
 ---
 
 <BasicLayout title={title} description={description}>
-  <Header />
+  <Header transition:persist />
+    <div transition:animate="fade">
       <slot />
-  <Footer />
+    </div>
+  <Footer transition:persist />
   <SpeedInsights />
 </BasicLayout>
