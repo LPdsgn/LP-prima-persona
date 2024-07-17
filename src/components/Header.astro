@@ -10,18 +10,13 @@
     </div>
     <div class="flex flex-1 items-center justify-end space-x-4">
       <nav class="flex items-center space-x-1 tracking-tight text-primary dark:text-white">
-        <a
-          href="/websites"
-          target=""
-          rel=""
-          class=""
-        >
+        <a href="/websites">
           Websites
         </a>
       </nav>
     </div>
   </div>
-  <script>
+  <script is:inline>
     document.addEventListener('scroll', function() {
       const header = document.getElementById('navbar');
       const classes = [
@@ -33,7 +28,7 @@
         'supports-[backdrop-filter]:bg-background/75'
       ];
 
-      if (window.scrollY > 10) {
+      if (window.scrollY > 8) {
         header.classList.add(...classes);
       } else {
         header.classList.remove(...classes);
