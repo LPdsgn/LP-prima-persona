@@ -11,5 +11,8 @@ export default defineConfig({
   prefetch: {
     defaultStrategy: 'viewport'
   },
-  integrations: [tailwind(), alpinejs(),react()]
+  integrations: [tailwind(), alpinejs(),react()],
+  devToolbar: {
+    enabled: true
+  }
 });
