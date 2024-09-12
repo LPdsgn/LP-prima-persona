@@ -3,6 +3,8 @@ import tailwind from "@astrojs/tailwind";
 import react from '@astrojs/react';
 //import sitemap from "@astrojs/sitemap";
 import alpinejs from "@astrojs/alpinejs";
+import vercel from '@astrojs/vercel/serverless';
+
 // Dev Toolbar extensions
 import metaTags from "astro-meta-tags";
 import pageInsight from "astro-page-insight";
@@ -13,9 +15,11 @@ import tailwindConfigViewer from "astro-tailwind-config-viewer";
 export default defineConfig({
   site: 'https://lpdsgn.it',
   trailingSlash: 'ignore',
+
   prefetch: {
     defaultStrategy: 'viewport'
   },
+
   integrations: [
     tailwind(),
     alpinejs(),
@@ -24,5 +28,11 @@ export default defineConfig({
     pageInsight(),
     vtbot(),
     tailwindConfigViewer()
-  ]
+  ],
+
+  output: "server",
+  adapter: vercel({
+    webAnalytics: { enabled: true }
+  }),
+
 });
