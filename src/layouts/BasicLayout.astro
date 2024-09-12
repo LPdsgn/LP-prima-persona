@@ -2,6 +2,7 @@
 // Globals
 import "../styles/global.css";
 import { ViewTransitions } from 'astro:transitions';
+import { Analytics } from '@vercel/analytics/react';
 
 interface Props {
   title?: string | undefined
@@ -144,5 +145,6 @@ const { title, description, ogImage, author } = Astro.props
 
     <slot />
 
+    <Analytics />
   </body>
 </html>
