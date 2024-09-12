@@ -10,24 +10,30 @@
     "astro": "astro"
   },
   "devDependencies": {
-    "@astrojs/sitemap": "^3.0.3",
-    "@astrojs/tailwind": "^5.0.3",
-    "@tailwindcss/typography": "^0.5.10",
+    "@astrojs/sitemap": "^3.1.6",
+    "@astrojs/tailwind": "^5.1.0",
+    "@tailwindcss/typography": "^0.5.15",
     "astro": "^4.0.4"
   },
   "dependencies": {
     "@astrojs/alpinejs": "^0.4.0",
+    "@astrojs/check": "^0.9.3",
     "@astrojs/react": "^3.6.0",
     "@astrolib/seo": "^1.0.0-beta.5",
     "@headlessui/react": "^2.1.2",
     "@heroicons/react": "^2.1.5",
-    "@nextui-org/react": "^2.4.2",
     "@types/alpinejs": "^3.13.10",
     "@vercel/speed-insights": "^1.0.12",
     "alpinejs": "^3.14.1",
+    "astro-meta-tags": "^0.3.0",
+    "astro-page-insight": "^0.8.6",
+    "astro-tailwind-config-viewer": "^2.0.1",
+    "astro-vtbot": "^1.9.2",
     "framer-motion": "^11.3.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "swiper": "^11.1.4"
+    "swiper": "^11.1.4",
+    "tailwindcss": "^3.4.11",
+    "typescript": "^5.6.2"
   }
 }
