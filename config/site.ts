@@ -9,10 +9,6 @@ export const menuConfig: SiteConfig = {
         {
             title: "Websites",
             href: "/websites",
-        },
-        {
-            title: "Test",
-            href: "/websites",
         }
     ]
 }
