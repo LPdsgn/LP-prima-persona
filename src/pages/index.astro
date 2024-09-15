@@ -1,7 +1,7 @@
 ---
 // Globals
-import Layout from "../layouts/Layout.astro";
-import Card from "../components/card/Card.astro";
+import BasicLayout from "@/layouts/BasicLayout.astro";
+import Card from "../components/ui/Card.astro";
 
 // Page related
 import About from "../sections/About.astro";
@@ -17,7 +17,7 @@ import Quote from "../sections/Quote.astro";
 import SpreadProject from '../sections/Spread_Project.astro'
 ---
 
-<Layout
+<BasicLayout
   title="LP Dev Central"
   description="Luigi Pedata - Designer & Web Developer"
 >
@@ -35,4 +35,4 @@ import SpreadProject from '../sections/Spread_Project.astro'
     <Quote />
 
   </main>
-</Layout>
+</BasicLayout>

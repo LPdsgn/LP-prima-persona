@@ -20,15 +20,9 @@ export default defineConfig({
     defaultStrategy: 'viewport'
   },
 
-  integrations: [
-    tailwind(),
-    alpinejs(),
-    react(),
-    metaTags(),
-    pageInsight(),
-    vtbot(),
-    tailwindConfigViewer()
-  ],
+  integrations: [tailwind({
+    applyBaseStyles: false,
+  }), alpinejs(), react(), metaTags(), pageInsight(), vtbot(), tailwindConfigViewer()],
 
   output: "server",
   adapter: vercel({

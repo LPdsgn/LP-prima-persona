@@ -1,0 +1,29 @@
+---
+const { title, description, author, canonicalURL, sitename, siteURL, ogImage } = Astro.props;
+---
+
+<!-- Meta Tags -->
+<title>{title}</title>
+<meta name="description" content={description} />
+<meta name="author" content={author} />
+<link rel="canonical" href={canonicalURL} />
+
+<!-- Open Graph Meta Tags -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:site_name" content={sitename} />
+<meta property="og:url" content={siteURL} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:image:alt" content="Social open graph" />
+<meta property="og:image:type" content="image/jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+
+<!-- Twitter Card Meta Tags -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:site" content={sitename} />
+<meta property="twitter:url" content={siteURL} />
+<meta property="twitter:title" content={title} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={ogImage} />
