@@ -21,7 +21,9 @@ export default defineConfig({
   },
 
   integrations: [
-    tailwind(),
+    tailwind({
+      applyBaseStyles: false,
+    }),
     alpinejs(),
     react(),
     metaTags(),
