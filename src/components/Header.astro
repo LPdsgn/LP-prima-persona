@@ -48,9 +48,9 @@ import { menuConfig } from "config/site";
 
   <!-- Mobile Menu -->
   <div id="mobile-menu" class="sm:hidden transition-all duration-300 h-0 opacity-0 overflow-hidden">
-    <nav class="flex flex-col items-start space-y-2 py-4">
+    <nav class="flex flex-col items-start pb-1.5 divide-y divide-zinc-200 dark:divide-zinc-700">
       {menuConfig.mainNav.map(item => (
-        <a href={item.href} class="tracking-tight text-primary dark:text-white">{item.title}</a>
+        <a href={item.href} class="w-full py-2.5 tracking-tight text-primary dark:text-white">{item.title}</a>
       ))}
     </nav>
   </div>
@@ -65,9 +65,9 @@ import { menuConfig } from "config/site";
       'shadow-xl', 
       'dark:shadow-thick', 
       'bg-background/95', 
-      'dark:bg-secondary/75', 
+      'dark:bg-custom-secondary/85', 
       'backdrop-blur', 
-      'supports-[backdrop-filter]:bg-background/75'
+      'supports-[backdrop-filter]:bg-background/85'
     ];
 
     if (window.scrollY > 8) {
