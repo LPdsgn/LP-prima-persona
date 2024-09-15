@@ -4,7 +4,7 @@ import colors from "tailwindcss/colors";
 import typography from "@tailwindcss/typography";
 
 export default {
-    darkMode: ['media'],
+    darkMode: ['class'],
     content: [
         './src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}',
     ],
