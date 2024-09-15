@@ -1,21 +1,31 @@
+---
+import { menuConfig, SiteConfig } from "config/site"
+import MobileNav from "@/components/MobileNav.astro"
+---
+
 <header id="navbar" class="sticky top-0 z-50 px-4 w-full dark:border-white/15 border-primary/15 border-b-[1px] duration-150"
 >
   <div
     class="flex py-4 items-center space-x-4 sm:justify-between sm:space-x-0"
   >
+    <!-- Site Logo -->
     <div class="flex gap-6 md:gap-10">
       <a href="/" class="flex items-center space-x-2 tracking-tight text-primary dark:text-white">
         <span class="inline-block font-bold display wide">LP Dev Central</span>
       </a>
     </div>
+
+    <!-- Desktop Menu -->
     <div class="flex flex-1 items-center justify-end space-x-4">
       <nav class="flex items-center space-x-1 tracking-tight text-primary dark:text-white">
-        <a href="/websites">
-          Websites
-        </a>
+        {menuConfig.mainNav.map(item => (
+          <a href={item.href}>{item.title}</a>
+        ))}
       </nav>
     </div>
   </div>
+
+  <!-- Sticky script -->
   <script is:inline>
     document.addEventListener('scroll', function() {
       const header = document.getElementById('navbar');
