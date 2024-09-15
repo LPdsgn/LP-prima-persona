@@ -5,7 +5,7 @@ interface Props {
 ---
 
 <!-- Google Tag Manager -->
-<script>
+<script is:inline>
   (function (w, d, s, l, i) {
     w[l] = w[l] || [];
     w[l].push({
@@ -18,5 +18,5 @@ interface Props {
     j.async = true;
     j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
     f.parentNode.insertBefore(j, f);
-  })(window, document, "script", "dataLayer", "GTM-NWRH6X5");
+  })(window, document, "script", "dataLayer", "{GTMid}");
 </script>

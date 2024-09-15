@@ -1,6 +1,19 @@
 ---
 // Globals
 import "../styles/global.css";
+
+import MetaTags from '@/components/markup/MetaTags.astro';
+import Favicons from '@/components/markup/Favicon.astro';
+import FontsAndStyles from '@/components/markup/FontsAndStyles.astro';
+import Scripts from '@/components/markup/Scripts.astro';
+import GTMhead from "@/components/analytics/GTMhead.astro";
+import GTMafterBody from "@/components/analytics/GTMafterBody.astro";
+import HeadScripts from '@/components/markup/HeadScripts.astro';
+import HeadStyles from '@/components/markup/HeadStyles.astro';
+
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import SpeedInsights from '@vercel/speed-insights/astro';
 import { ViewTransitions } from 'astro:transitions';
 import { Analytics } from '@vercel/analytics/react';
 
@@ -9,6 +22,9 @@ interface Props {
   description?: string | undefined
   ogImage?: string | undefined
   author?: string | "Luigi Pedata"
+  GTMid: string;
+  headScripts?: string[];
+  headStyles?: string[];
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
@@ -19,132 +35,34 @@ if (Astro.props.ogImage === undefined) {
   Astro.props.ogImage = `${Astro.url.origin}/media/og/og-lpdsgn-b.jpg`;
 }
 
-const { title, description, ogImage, author } = Astro.props
+const { title, description, ogImage, author, headScripts = [], headStyles = [], GTMid = "GTM-NWRH6X5" } = Astro.props
 ---
 
 <!doctype html>
-<html lang="en" class="lenis dark bg-zinc-200 dark:bg-primary">
+<html lang="en" class="lenis dark bg-zinc-200 dark:bg-background">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charset="UTF-8" />
     <meta name="robots" content="index, follow" />
     <meta name="googlebot" content="index, follow" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <!--Meta-->
-    <title>{title}</title>
-    <meta name="description" content={description} />
-    <meta name="author" content={author} />
-    <link rel="canonical" href={canonicalURL} />
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:site_name" content={sitename} />
-    <meta property="og:url" content={siteURL} />
-    <!-- Primary Open Graph Image -->
-    <meta property="og:image" content={ogImage} />
-    <meta property="og:image:alt" content="Social open graph" />
-    <meta property="og:image:type" content="image/jpg" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <!-- Twitter Card Meta Tags -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:site" content={sitename} />
-    <meta property="twitter:url" content={siteURL} />
-    <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={ogImage} />
-    <!-- Favicon guidelines generated with https://favicon.io/ -->
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="/assets/fav/apple-touch-icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="/assets/fav/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="/assets/fav/favicon-16x16.png"
-    />
-    <link rel="manifest" href="/assets/fav/site.webmanifest" />
-    <link
-      rel="mask-icon"
-      href="/assets/fav/safari-pinned-tab.svg"
-      color="#1b1d20"
-    />
-    <meta name="msapplication-TileColor" content="#1b1d20" />
-    <meta name="theme-color" content="#1b1d20" id="theme-color-meta" />
-    <script>
-      function setThemeColor() {
-          const themeColorMetaTag = document.getElementById('theme-color-meta');
-          const lightColor = '#e4e4e7';  // Colore per la light mode
-          const darkColor = '#1b1d20';   // Colore per la dark mode
-          if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-              themeColorMetaTag.setAttribute('content', darkColor);
-          } else {
-              themeColorMetaTag.setAttribute('content', lightColor);
-          }
-      }
-      // Set theme color on page load
-      setThemeColor();
-      // Listen for changes in the color scheme
-      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', setThemeColor);
-    </script>
-    <!-- Google Tag Manager -->
-    <script>
-      (function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({
-          "gtm.start": new Date().getTime(),
-          event: "gtm.js",
-        });
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != "dataLayer" ? "&l=" + l : "";
-        j.async = true;
-        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-        f.parentNode.insertBefore(j, f);
-      })(window, document, "script", "dataLayer", "GTM-NWRH6X5");
-    </script>
-    <!-- Fonts & Styles -->
-    <link rel="preconnect" href="https://rsms.me/" />
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
-    <link rel="preload" href="/assets/font/Mona-Sans.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="/assets/font/Mona-Sans.ttf" as="font" type="font/woff2" crossorigin>
-    <!-- Scripts -->
-    <script defer src="https://unpkg.com/mailgo@0.12.2/dist/mailgo.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
-    <script async src="https://unpkg.com/lenis@1.1.5/dist/lenis.min.js" ></script>
-    <script>
-      const lenis = new Lenis()
-      lenis.on('scroll', (e) => {
-        console.log(e)
-      })
-      function raf(time) {
-        lenis.raf(time)
-        requestAnimationFrame(raf)
-      }
-      requestAnimationFrame(raf)
-    </script>
+    <GTMhead GTMid={GTMid} />
+    <MetaTags title={title} description={description} author={author} canonicalURL={canonicalURL} sitename={sitename} siteURL={siteURL} ogImage={ogImage} />
+    <Favicons />
+    <FontsAndStyles />
+    <Scripts />
+    <HeadScripts scripts={headScripts} />
+    <HeadStyles styles={headStyles} />
     <ViewTransitions />
   </head>
 
-  <body class="bg-zinc-200 dark:bg-primary min-h-svh flex flex-col items-stretch">
-    <noscript>
-        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NWRH6X5"
-        height="0"
-        width="0"
-        style="display:none;visibility:hidden"></iframe>
-    </noscript>
-
-    <slot />
-
+  <body class="bg-zinc-200 dark:bg-background min-h-svh flex flex-col items-stretch">
+    <Header transition:persist />
+      <div transition:animate="fade">
+        <slot />
+      </div>
+    <Footer transition:persist />
+    <SpeedInsights />
     <Analytics />
   </body>
 </html>

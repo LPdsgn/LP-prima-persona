@@ -1,7 +1,7 @@
 ---
 // Globals
-import Layout from '../layouts/Layout.astro'
-import Pulse from '../components/Pulse.astro';
+import BasicLayout from '@/layouts/BasicLayout.astro';
+import Pulse from '@/components/ui/Pulse.astro';
 import { Image, Picture } from 'astro:assets';
 
 // Page related
@@ -9,7 +9,7 @@ import { websiteData } from '../data/WebsitesData.json';
 
 ---
 
-<Layout
+<BasicLayout
   title="LP Dev Central"
   description="Luigi Pedata - Designer & Web Developer"
 >
@@ -84,4 +84,4 @@ import { websiteData } from '../data/WebsitesData.json';
     }
 
   </div>
-</Layout>
+</BasicLayout>

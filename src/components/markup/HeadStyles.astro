@@ -1,0 +1,12 @@
+---
+export interface Props {
+  styles: string[];
+}
+const { styles } = Astro.props;
+---
+
+{ styles && styles.length > 0 &&
+  styles.map((style) => (
+    <link rel="stylesheet" href={style} />
+  ))
+}
