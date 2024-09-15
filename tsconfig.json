@@ -6,6 +6,8 @@
         "./src/*"
       ]
     },
+    // Abilita JSX per componenti React
+    "jsx": "react",
     // Enable top-level await, and other modern ESM features.
     "target": "ESNext",
     "module": "ESNext",

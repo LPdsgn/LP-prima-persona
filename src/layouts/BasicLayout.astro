@@ -39,7 +39,7 @@ const { title, description, ogImage, author, headScripts = [], headStyles = [], 
 ---
 
 <!doctype html>
-<html lang="en" class="lenis dark bg-zinc-200 dark:bg-background">
+<html lang="en" class="lenis dark bg-zinc-200 dark:bg-custom-primary">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charset="UTF-8" />
@@ -56,7 +56,7 @@ const { title, description, ogImage, author, headScripts = [], headStyles = [], 
     <ViewTransitions />
   </head>
 
-  <body class="bg-zinc-200 dark:bg-background min-h-svh flex flex-col items-stretch">
+  <body class="bg-zinc-200 dark:bg-custom-primary min-h-svh flex flex-col items-stretch">
     <Header transition:persist />
       <div transition:animate="fade">
         <slot />
