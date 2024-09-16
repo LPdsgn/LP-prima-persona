@@ -1,4 +1,5 @@
 @import "../styles/fonts.css";
+@import "../styles/header.css";
 
 @tailwind base;
 @tailwind components;
@@ -16,6 +17,7 @@
     font-stretch: 75% 125%;
   }
   :root {
+    /* Colors */
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
     --card: 0 0% 100%;
@@ -41,6 +43,33 @@
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
+    /* Fonts */
+    --font-fallback:
+      -apple-system, /* Apple devices */
+      BlinkMacSystemFont, /* Standard font for macOS */
+      "Segoe UI", /* Windows */
+      Roboto, /* Android */
+      Oxygen-Sans, /* KDE */
+      Ubuntu, /* Ubuntu */
+      Cantarell, /* GNOME */
+      "Helvetica Neue", /* macOS (older versions) */
+      Helvetica, /* Generic sans-serif */
+      system-ui, /* Default system UI font */
+      sans-serif; /* Default sans-serif */
+    font-family: Inter, var(--font-fallback);
+    font-feature-settings:
+      "liga" 1,
+      "calt" 1, /* Contextual Alternates */
+      "dlig" 1, /* Discretionary Ligatures */
+      "ss07" 1, /* fSquare punctuation */
+      "ss08" 1, /* Square quotes */
+      "zero" 1, /* Slashed zero */
+      "tnum" 1, /* Tabular numbers */
+      "cv03" 1, /* Open six */
+      "cv04" 1, /* Open nine */
+      "cv01" 1, /* Alternate one */
+      "cv09", /* Flat-top three */
+      "cv02" 1; /* Open 4 */
   }
   .dark {
     --background: 240 10% 3.9%;
@@ -74,87 +103,50 @@
   body {
     @apply bg-background text-foreground;
   }
+  .display {
+    font-feature-settings:
+      "liga" 1,
+      "dlig" 1,
+      "ss01" 1, /* Square diacritical marks */
+      "ss03" 1, /* Lowercase l with tail */
+      "ss05" 1, /* Double-storey a */
+      "ss08" 1  /* Tabular zero with straight bar */
+      !important;
+  }
 }
 
 @layer components {
-  
+  .condensed {
+    font-family: "Mona Sans Condensed", Inter, var(--font-fallback);
+    font-stretch: 75%;
+  }
+  .wide {
+    font-family: "Mona Sans Expanded", Inter, var(--font-fallback);
+    font-stretch: 125%;
+  }
+  .display {
+    font-family: "Mona Sans", Inter, var(--font-fallback);
+  }
 }
 
 @layer utilities {
-  .condensed {
-    font-family: "Mona Sans Condensed", Inter, Helvetica, system-ui, sans-serif;
-    font-stretch: 75%;
-  }
-  .wide {
-    font-family: "Mona Sans Expanded", Inter, Helvetica, system-ui, sans-serif;
-    font-stretch: 125%;
-  }
+  
 }
 
-/* CSS */
-:root {
-  font-family: Inter,
-    -apple-system, /* Apple devices */
-    BlinkMacSystemFont, /* Standard font for macOS */
-    "Segoe UI", /* Windows */
-    Roboto, /* Android */
-    Oxygen-Sans, /* KDE */
-    Ubuntu, /* Ubuntu */
-    Cantarell, /* GNOME */
-    "Helvetica Neue", /* macOS (older versions) */
-    Helvetica, /* Generic sans-serif */
-    system-ui, /* Default system UI font */
-    sans-serif; /* Default sans-serif */
-  font-feature-settings:
-    "liga" 1,
-    "calt" 1, /* Contextual Alternates */
-    "dlig" 1, /* Discretionary Ligatures */
-    "ss07" 1, /* fSquare punctuation */
-    "ss08" 1, /* Square quotes */
-    "zero" 1, /* Slashed zero */
-    "tnum" 1, /* Tabular numbers */
-    "cv03" 1, /* Open six */
-    "cv04" 1, /* Open nine */
-    "cv01" 1, /* Alternate one */
-    "cv09", /* Flat-top three */
-    "cv02" 1; /* Open 4 */
-}
-.display {
-  font-family: "Mona-Sans",
-    Inter
-    -apple-system, /* Apple devices */
-    BlinkMacSystemFont, /* Standard font for macOS */
-    "Segoe UI", /* Windows */
-    Roboto, /* Android */
-    Oxygen-Sans, /* KDE */
-    Ubuntu, /* Ubuntu */
-    Cantarell, /* GNOME */
-    "Helvetica Neue", /* macOS (older versions) */
-    Helvetica, /* Generic sans-serif */
-    system-ui, /* Default system UI font */
-    sans-serif; /* Default sans-serif */
-  font-feature-settings:
-    "liga" 1,
-    "dlig" 1,
-    "ss01" 1, /* Square diacritical marks */
-    "ss03" 1, /* Lowercase l with tail */
-    "ss05" 1, /* Double-storey a */
-    "ss08" 1; /* Tabular zero with straight bar */
-}
 @supports (font-variation-settings: normal) {
   /* Use variable font if supported */
   :root {
-    font-family: InterVariable, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, system-ui, sans-serif;
+    font-family: InterVariable, var(--font-fallback);
   }
   .display {
-    font-family: "Mona Sans Variable", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, system-ui, sans-serif;
+    font-family: "Mona Sans Variable", var(--font-fallback);
   }
   .condensed {
-    font-family: "Mona Sans Variable", Helvetica, system-ui, sans-serif;
+    font-family: "Mona Sans Variable", var(--font-fallback);
     font-stretch: 75%;
   }
   .wide {
-    font-family: "Mona Sans Variable", Helvetica, system-ui, sans-serif;
+    font-family: "Mona Sans Variable", var(--font-fallback);
     font-stretch: 125%;
   }
 }

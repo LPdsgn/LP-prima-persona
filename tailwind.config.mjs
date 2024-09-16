@@ -11,10 +11,6 @@ export default {
         './src/**/*.css',
     ],
     theme: {
-        fontFamily: {
-            sans: ["Inter", ...defaultTheme.fontFamily.sans],
-            display: ['Mona Sans"', ...defaultTheme.fontFamily.sans]
-        },
         fontSize: {
             xs: [
                 "0.75rem",
