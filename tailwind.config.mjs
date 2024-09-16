@@ -5,6 +5,7 @@ import typography from "@tailwindcss/typography";
 
 export default {
     darkMode: ['class'],
+    //purge: false,
     content: [
         './src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}',
         './src/**/*.css',
@@ -114,7 +115,7 @@ export default {
                     tertiary: "#262626",
                     white: "#ececec",
                 },
-    			background: 'hsl(var(--background))',
+                background: 'hsl(var(--background))',
                 foreground: 'hsl(var(--foreground))',
                 card: {
                     DEFAULT: 'hsl(var(--card))',
@@ -167,6 +168,11 @@ export default {
             }
         }
     },
+    safelist: [
+        {
+            pattern: /^gap-/,
+        },
+    ],
     plugins: [
         typography,
         require("tailwindcss-animate")
