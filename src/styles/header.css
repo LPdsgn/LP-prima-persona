@@ -1,0 +1,36 @@
+#navbar {
+    @apply top-0 z-50 px-4 w-full dark:border-white/15 border-primary/15 border-b-1 duration-150;
+}
+#navbar.scrolled {
+    @apply shadow-xl dark:shadow-thick bg-background/95 dark:bg-custom-secondary/85 backdrop-blur;
+}
+#navbar .inner-wrapper {
+    @apply flex py-4 items-center gap-4 space-x-4 justify-between sm:space-x-0;
+}
+.branding {
+    @apply flex sm:basis-1/5 gap-4;
+}
+.actions {
+    @apply flex sm:basis-1/5 gap-4;
+}
+/* Desktop */
+.navigation {
+    @apply hidden sm:flex flex-1 sm:basis-3/5 gap-4 items-center justify-center space-x-4 tracking-tight text-primary dark:text-white;
+}
+
+/* Mobile */
+#mobile-menu-toggle {
+    @apply sm:hidden flex items-center text-primary dark:text-white;
+}
+#mobile-menu {
+    @apply sm:hidden transition-all duration-300 h-0 opacity-0 overflow-hidden flex flex-col items-start pb-1.5 divide-y divide-zinc-200 dark:divide-zinc-700;
+}
+#mobile-menu.closed {
+    @apply h-auto opacity-100;
+}
+#mobile-menu.open {
+    @apply h-0 opacity-0;
+}
+#mobile-menu .item {
+    @apply w-full py-2.5 tracking-tight text-primary dark:text-white;
+}

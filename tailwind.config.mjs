@@ -154,6 +154,9 @@ export default {
                 md: 'calc(var(--radius) - 2px)',
                 sm: 'calc(var(--radius) - 4px)'
             },
+            borderWidth: {
+                '1': '1px'
+            },
             translate: {
                 half: '50%',
                 quart: '25%'
