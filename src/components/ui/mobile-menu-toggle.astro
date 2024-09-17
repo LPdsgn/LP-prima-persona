@@ -1,0 +1,50 @@
+---
+// MobileMenuToggle.astro
+---
+
+<script>
+  class MobileMenuToggle extends HTMLElement {
+    constructor() {
+      super();
+      const button = this.querySelector('button');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const menuIcon = this.querySelector('path');
+      let isMenuOpen = false;
+
+      button.addEventListener('click', () => {
+        isMenuOpen = !isMenuOpen;
+        if (isMenuOpen) {
+          mobileMenu.classList.remove('closed');
+          mobileMenu.classList.add('open');
+          menuIcon.setAttribute('d', 'M6 18L18 6M6 6l12 12'); // "X" icon
+        } else {
+          mobileMenu.classList.remove('open');
+          mobileMenu.classList.add('closed');
+          menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16'); // Hamburger icon
+        }
+      });
+    }
+  }
+
+  customElements.define('mobile-menu-toggle', MobileMenuToggle);
+</script>
+
+<mobile-menu-toggle>
+  <button id="mobile-menu-toggle">
+    <svg
+      class="w-6 h-6"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        id="mobile-menu-icon"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M4 6h16M4 12h16M4 18h16"
+      ></path>
+    </svg>
+  </button>
+</mobile-menu-toggle>

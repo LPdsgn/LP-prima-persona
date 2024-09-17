@@ -1,4 +1,5 @@
 @import "../styles/fonts.css";
+@import "../styles/header.css";
 
 @tailwind base;
 @tailwind components;
@@ -7,15 +8,15 @@
 @layer base {
   @font-face {
     font-family: "Mona Sans Variable";
-    src:
-      url('/assets/font/Mona-Sans.woff2') format('woff2 supports variations'),
-      url('/assets/font/Mona-Sans.woff2') format('woff2-variations'),
-      url('/assets/font/Mona-Sans.ttf') format('woff2 supports variations'),
-      url('/assets/font/Mona-Sans.ttf') format('woff2-variations');
+    src: url('/assets/font/Mona-Sans.woff2') format('woff2 supports variations'),
+         url('/assets/font/Mona-Sans.woff2') format('woff2-variations'),
+         url('/assets/font/Mona-Sans.ttf') format('truetype-variations');
     font-weight: 200 900;
     font-stretch: 75% 125%;
+    font-display: swap;
   }
   :root {
+    /* Colors */
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
     --card: 0 0% 100%;
@@ -41,6 +42,38 @@
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
+    
+    /* Fonts general fallback */
+    --font-fallback:
+      -apple-system, /* Apple devices */
+      BlinkMacSystemFont, /* Standard font for macOS */
+      "Segoe UI", /* Windows */
+      Roboto, /* Android */
+      Oxygen-Sans, /* KDE */
+      Ubuntu, /* Ubuntu */
+      Cantarell, /* GNOME */
+      "Helvetica Neue", /* macOS (older versions) */
+      Helvetica, /* Generic sans-serif */
+      system-ui, /* Default system UI font */
+      sans-serif; /* Default sans-serif */
+    
+    /* Default font family */
+    font-family: Inter, var(--font-fallback);
+    
+    /* Inter Font feature settings */
+    font-feature-settings:
+      "liga" 1,
+      "calt" 1, /* Contextual Alternates */
+      "dlig" 1, /* Discretionary Ligatures */
+      "ss07" 1, /* fSquare punctuation */
+      "ss08" 1, /* Square quotes */
+      "zero" 1, /* Slashed zero */
+      "tnum" 1, /* Tabular numbers */
+      "cv03" 1, /* Open six */
+      "cv04" 1, /* Open nine */
+      "cv01" 1, /* Alternate one */
+      "cv09", /* Flat-top three */
+      "cv02" 1; /* Open 4 */
   }
   .dark {
     --background: 240 10% 3.9%;
@@ -68,94 +101,77 @@
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
   }
+
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
+  }
+
+  #vtbot-loading-indicator {
+    pointer-events: none !important;
+  }
+
+  /* Alternate Font feature settings */
+  .display {
+    font-feature-settings:
+      "liga" 1,
+      "dlig" 1,
+      "ss01" 1, /* Square diacritical marks */
+      "ss03" 1, /* Lowercase l with tail */
+      "ss05" 1, /* Double-storey a */
+      "ss08" 1  /* Tabular zero with straight bar */
+      !important;
+  }
+}
+
+@layer components {
+
+  /* Alternative Font rules */
+  .condensed {
+    font-family: "Mona Sans Condensed", Inter, var(--font-fallback);
+    font-stretch: 75%;
+  }
+  .wide {
+    font-family: "Mona Sans Expanded", Inter, var(--font-fallback);
+    font-stretch: 125%;
+  }
+  .display {
+    font-family: "Mona Sans", Inter, var(--font-fallback);
+  }
+
+  .content-wrapper {
+    @apply flex-grow;
+  }
+
+  /* Colore per tutti gli header (h1-h6) */
+  h1, h2, h3, h4, h5, h6, .text-heading {
+    @apply text-primary dark:text-white; /* Usa i colori definiti nella tua configurazione Tailwind */
+  }
+  /* Colore e stile per i paragrafi */
+  p, .text-paraf {
+    @apply text-zinc-800 dark:text-zinc-300; /* Usa i colori definiti nella tua configurazione Tailwind */
+    @apply text-base font-light leading-relaxed;
   }
 }
 
 @layer utilities {
-  .condensed {
-    font-family: "Mona Sans Condensed", Inter, Helvetica, system-ui, sans-serif;
-    font-stretch: 75%;
-  }
-  .wide {
-    font-family: "Mona Sans Expanded", Inter, Helvetica, system-ui, sans-serif;
-    font-stretch: 125%;
-  }
+  
 }
 
-/* CSS */
-:root {
-  font-family: Inter,
-    -apple-system, /* Apple devices */
-    BlinkMacSystemFont, /* Standard font for macOS */
-    "Segoe UI", /* Windows */
-    Roboto, /* Android */
-    Oxygen-Sans, /* KDE */
-    Ubuntu, /* Ubuntu */
-    Cantarell, /* GNOME */
-    "Helvetica Neue", /* macOS (older versions) */
-    Helvetica, /* Generic sans-serif */
-    system-ui, /* Default system UI font */
-    sans-serif; /* Default sans-serif */
-  font-feature-settings:
-    "liga" 1,
-    "calt" 1, /* Contextual Alternates */
-    "dlig" 1, /* Discretionary Ligatures */
-    "ss07" 1, /* fSquare punctuation */
-    "ss08" 1, /* Square quotes */
-    "zero" 1, /* Slashed zero */
-    "tnum" 1, /* Tabular numbers */
-    "cv03" 1, /* Open six */
-    "cv04" 1, /* Open nine */
-    "cv01" 1, /* Alternate one */
-    "cv09", /* Flat-top three */
-    "cv02" 1; /* Open 4 */
-}
-.display {
-  font-family: "Mona-Sans",
-    Inter
-    -apple-system, /* Apple devices */
-    BlinkMacSystemFont, /* Standard font for macOS */
-    "Segoe UI", /* Windows */
-    Roboto, /* Android */
-    Oxygen-Sans, /* KDE */
-    Ubuntu, /* Ubuntu */
-    Cantarell, /* GNOME */
-    "Helvetica Neue", /* macOS (older versions) */
-    Helvetica, /* Generic sans-serif */
-    system-ui, /* Default system UI font */
-    sans-serif; /* Default sans-serif */
-  font-feature-settings:
-    "liga" 1,
-    "dlig" 1,
-    "ss01" 1, /* Square diacritical marks */
-    "ss03" 1, /* Lowercase l with tail */
-    "ss05" 1, /* Double-storey a */
-    "ss08" 1; /* Tabular zero with straight bar */
-}
 @supports (font-variation-settings: normal) {
   /* Use variable font if supported */
   :root {
-    font-family: InterVariable, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, system-ui, sans-serif;
+    font-family: InterVariable, var(--font-fallback);
   }
   .display {
-    font-family: "Mona Sans Variable", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, system-ui, sans-serif;
-  }
-  .condensed {
-    font-family: "Mona Sans Variable", Helvetica, system-ui, sans-serif;
-    font-stretch: 75%;
-  }
-  .wide {
-    font-family: "Mona Sans Variable", Helvetica, system-ui, sans-serif;
-    font-stretch: 125%;
+    font-family: "Mona Sans Variable", var(--font-fallback);
   }
 }
 
-/**/
+/* WEBSITES style */
 a.website > img {
   width: 37.5%;
   height: auto;
@@ -165,27 +181,19 @@ a.website:not(:hover) > img {
   display: none;
 }
 
-#vtbot-loading-indicator {
-  pointer-events: none !important;
-}
-
 /*Lenis*/
 html.lenis, html.lenis body {
   height: auto;
 }
-
 .lenis.lenis-smooth {
   scroll-behavior: auto !important;
 }
-
 .lenis.lenis-smooth [data-lenis-prevent] {
   overscroll-behavior: contain;
 }
-
 .lenis.lenis-stopped {
   overflow: hidden;
 }
-
 .lenis.lenis-smooth iframe {
   pointer-events: none;
 }

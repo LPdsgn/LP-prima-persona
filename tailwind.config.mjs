@@ -5,14 +5,12 @@ import typography from "@tailwindcss/typography";
 
 export default {
     darkMode: ['class'],
+    //purge: false,
     content: [
         './src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}',
+        './src/**/*.css',
     ],
     theme: {
-        fontFamily: {
-            sans: ["Inter", ...defaultTheme.fontFamily.sans],
-            display: ['Mona Sans"', ...defaultTheme.fontFamily.sans]
-        },
         fontSize: {
             xs: [
                 "0.75rem",
@@ -113,7 +111,7 @@ export default {
                     tertiary: "#262626",
                     white: "#ececec",
                 },
-    			background: 'hsl(var(--background))',
+                background: 'hsl(var(--background))',
                 foreground: 'hsl(var(--foreground))',
                 card: {
                     DEFAULT: 'hsl(var(--card))',
@@ -154,6 +152,9 @@ export default {
                 md: 'calc(var(--radius) - 2px)',
                 sm: 'calc(var(--radius) - 4px)'
             },
+            borderWidth: {
+                '1': '1px'
+            },
             translate: {
                 half: '50%',
                 quart: '25%'
@@ -163,6 +164,11 @@ export default {
             }
         }
     },
+    safelist: [
+        {
+            pattern: /^gap-/,
+        },
+    ],
     plugins: [
         typography,
         require("tailwindcss-animate")

@@ -6,25 +6,23 @@ import { Image, Picture } from 'astro:assets';
 
 // Page related
 import { websiteData } from '../data/WebsitesData.json';
-
+import '@/styles/websites.css';
 ---
 
 <BasicLayout
-  title="LP Dev Central"
-  description="Luigi Pedata - Designer & Web Developer"
+  title="Websites | LP Dev Central"
+  description="Some of the websites that I designed and developed"
 >
-  <main
-    class="p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-screen-2xl mx-auto">
-
-    <div class="flex flex-col md:flex-row lg:items-baseline justify-between md:col-span-2 lg:col-span-3 mt-8 mb-4">
-      <h1 class="display uppercase font-black wide text-6xl md:text-7xl lg:text-9xl tracking-tight text-primary dark:text-white">
+  <main class="main-container">
+    <div class="section-header">
+      <h1 class="main-title display wide">
         Websites
       </h1>
-      <div class="flex flex-col lg:flex-row gap-4 mt-4 text-zinc-500 dark:text-zinc-400 text-sm font-light leading-snug">
-        <p class="flex items-center gap-2">
+      <div class="description-text">
+        <p class="description-paragraph">
           <Pulse online={true} /> Online as delivered
         </p>
-        <p class="flex items-center gap-2">
+        <p class="description-paragraph">
           <Pulse online={false} /> Offline or modified by third parties
         </p>
       </div>
@@ -32,48 +30,46 @@ import { websiteData } from '../data/WebsitesData.json';
 
     {websiteData.map((website, index) => (
         <a
-          class="w-full ring-1 dark:ring-white/10 ring-primary/5 dark:hover:ring-white/20 hover:ring-primary/5 duration-300
-          bg-white dark:bg-secondary shadow-xl dark:shadow-thick rounded-2xl lg:rounded-3xl px-6 pt-6 pb-5 lg:px-8 lg:pt-8 lg:pb-7"
+          class="website-link"
           data-index={index}
           href={website.publicLink}
           target="_blank"
           rel="noopener noreferrer"
         >
-          <div class={`flex items-center -mx-3 -mt-3 duration-150 ${
+          <div class={`website-image-container ${
           website.online ? '' : 'opacity-25'
           }`}>
             <img
-            loading="lazy"
-            class="aspect-[16/10] h-auto w-5/6 object-cover object-top rounded lg:rounded-lg shadow-md dark:shadow-thick"
-            src={website.desktopImageSrc}
-            onerror="this.onerror = null; this.src = '/media/websites/placeholder.jpg'"
-          />
-          <img
-            loading="lazy"
-            class="aspect-[6/13] h-auto w-1/6 object-cover object-center rounded-md -ml-5 flex-grow shadow-md dark:shadow-thick"
-            src={website.mobileImageSrc}
-            onerror="this.onerror = null; this.src = '/media/websites/placeholder.jpg'"
-          />
+              loading="lazy"
+              class="website-image"
+              src={website.desktopImageSrc}
+              onerror="this.onerror = null; this.src = '/media/websites/placeholder.jpg'"
+            />
+            <img
+              loading="lazy"
+              class="website-mobile-image"
+              src={website.mobileImageSrc}
+              onerror="this.onerror = null; this.src = '/media/websites/placeholder.jpg'"
+            />
           </div>
-          <div class="flex justify-between items-center mt-4 text-primary dark:text-white">
-            <h3 class={`text-2xl md:text-3xl lg:text-4xl font-medium tracking-tight ${
+          <div class="website-title-container">
+            <h3 class={`website-title ${
               website.online ? '' : 'line-through'
             }`}>
               {website.websiteName}
             </h3>
-            <span class="flex items-center gap-3">
+            <span class="website-status">
               <Pulse online={website.online} />
               <span
-              class={`text-l md:text-xl lg:text-2xl font-extralight -rotate-45 ${
-                website.online ? '' : 'opacity-35'
-              }`}
+                class={`website-status-icon ${
+                  website.online ? '' : 'opacity-35'
+                }`}
               ></span>
             </span>
           </div>
-          <p class="flex gap-2 mt-2">
+          <p class="website-tags">
             {website.tags.map((tag, tagIndex) => (
-              <span
-              class="py-1 px-3 text-xs text-zinc-500 dark:text-zinc-400 font-light leading-snug ring-1 dark:ring-zinc-500 ring-zinc-400 rounded-3xl">
+              <span class="website-tag">
                 {tag}
               </span>
             ))}
@@ -82,6 +78,5 @@ import { websiteData } from '../data/WebsitesData.json';
         </a>
       ))
     }
-
-  </div>
+  </main>
 </BasicLayout>

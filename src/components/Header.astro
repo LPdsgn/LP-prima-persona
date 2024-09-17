@@ -1,98 +1,59 @@
 ---
 import { menuConfig } from "config/site";
+import MobileMenuToggle from "./ui/mobile-menu-toggle.astro";
+import { ModeToggle } from "./ui/ModeToggle";
 ---
 
-<header id="navbar" class="sticky top-0 z-50 px-4 w-full dark:border-white/15 border-primary/15 border-b-[1px] duration-150">
-  <div class="flex py-4 items-center space-x-4 justify-between sm:space-x-0">
+<header id="navbar" class="sticky ">
+  <div class="inner-wrapper">
     <!-- Site Logo -->
-    <div class="flex gap-6 md:gap-10">
+    <div class="branding">
       <a href="/" class="flex items-center space-x-2 tracking-tight text-primary dark:text-white">
         <span class="inline-block font-bold display wide">LP Dev Central</span>
       </a>
     </div>
 
-    <!-- Desktop Menu -->
-    <div class="hidden sm:flex flex-1 items-center justify-end space-x-4">
-      <nav class="flex items-center space-x-1 tracking-tight text-primary dark:text-white">
-        {menuConfig.mainNav.map(item => (
-          <a href={item.href}>{item.title}</a>
-        ))}
-      </nav>
-    </div>
-
-    <!-- Mobile Menu Button -->
-    <button id="mobile-menu-toggle" class="sm:hidden flex items-center text-primary dark:text-white">
-      <svg
-        class="w-6 h-6"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          id="mobile-menu-icon"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M4 6h16M4 12h16M4 18h16"
-        ></path>
-      </svg>
-    </button>
-
-    <!-- <button id="mobile-menu-toggle" class="mobile-menu-2 sm:hidden flex items-center text-primary dark:text-white">
-      <span class="line-1"></span>
-      <span class="line-2"></span>
-      <span class="line-3"></span>
-    </button> -->
-  </div>
-
-  <!-- Mobile Menu -->
-  <div id="mobile-menu" class="sm:hidden transition-all duration-300 h-0 opacity-0 overflow-hidden">
-    <nav class="flex flex-col items-start pb-1.5 divide-y divide-zinc-200 dark:divide-zinc-700">
+    <nav class="navigation">
       {menuConfig.mainNav.map(item => (
-        <a href={item.href} class="w-full py-2.5 tracking-tight text-primary dark:text-white">{item.title}</a>
+        <a href={item.href} class="">{item.title}</a>
       ))}
     </nav>
+
+    <div class="actions">
+      <MobileMenuToggle />
+      <!-- <button id="mobile-menu-toggle" class="mobile-menu-2 sm:hidden flex items-center text-primary dark:text-white">
+        <span class="line-1"></span>
+        <span class="line-2"></span>
+        <span class="line-3"></span>
+      </button> -->
+      <ModeToggle client:load />
+    </div>
+
   </div>
+
+  <nav id="mobile-menu">
+    {menuConfig.mainNav.map(item => (
+      <a href={item.href} class="item">{item.title}</a>
+    ))}
+  </nav>
 
 </header>
 
-<script is:inline>
-  // Stickyness
-  document.addEventListener('scroll', function() {
+<script>
+  function handleScroll() {
     const header = document.getElementById('navbar');
-    const classes = [
-      'shadow-xl', 
-      'dark:shadow-thick', 
-      'bg-background/95', 
-      'dark:bg-custom-secondary/85', 
-      'backdrop-blur', 
-      'supports-[backdrop-filter]:bg-background/85'
-    ];
-
     if (window.scrollY > 8) {
-      header.classList.add(...classes);
+      header.classList.add('scrolled');
     } else {
-      header.classList.remove(...classes);
+      header.classList.remove('scrolled');
     }
-  });
+  }
 
-  // Mobile Menu Toggle
-  const menuToggle = document.getElementById('mobile-menu-toggle');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const menuIcon = document.getElementById('mobile-menu-icon');
-  let isMenuOpen = false;
-
-  menuToggle.addEventListener('click', function() {
-    isMenuOpen = !isMenuOpen;
-    if (isMenuOpen) {
-      mobileMenu.classList.remove('h-0', 'opacity-0');
-      mobileMenu.classList.add('h-auto', 'opacity-100');
-      menuIcon.setAttribute('d', 'M6 18L18 6M6 6l12 12'); // Icona "X"
-    } else {
-      mobileMenu.classList.remove('h-auto', 'opacity-100');
-      mobileMenu.classList.add('h-0', 'opacity-0');
-      menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16'); // Icona hamburger
-    }
-  });
+  // Use this check to ensure the code only runs in the browser
+  if (typeof window !== 'undefined') {
+    document.addEventListener('DOMContentLoaded', () => {
+      handleScroll(); // Call once to set initial state
+      document.addEventListener('scroll', handleScroll);
+    });
+  }
 </script>
