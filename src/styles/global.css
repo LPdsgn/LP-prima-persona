@@ -8,13 +8,12 @@
 @layer base {
   @font-face {
     font-family: "Mona Sans Variable";
-    src:
-      url('/assets/font/Mona-Sans.woff2') format('woff2 supports variations'),
-      url('/assets/font/Mona-Sans.woff2') format('woff2-variations'),
-      url('/assets/font/Mona-Sans.ttf') format('woff2 supports variations'),
-      url('/assets/font/Mona-Sans.ttf') format('woff2-variations');
+    src: url('/assets/font/Mona-Sans.woff2') format('woff2 supports variations'),
+         url('/assets/font/Mona-Sans.woff2') format('woff2-variations'),
+         url('/assets/font/Mona-Sans.ttf') format('truetype-variations');
     font-weight: 200 900;
     font-stretch: 75% 125%;
+    font-display: swap;
   }
   :root {
     /* Colors */
@@ -43,7 +42,8 @@
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
-    /* Fonts */
+    
+    /* Fonts general fallback */
     --font-fallback:
       -apple-system, /* Apple devices */
       BlinkMacSystemFont, /* Standard font for macOS */
@@ -56,7 +56,11 @@
       Helvetica, /* Generic sans-serif */
       system-ui, /* Default system UI font */
       sans-serif; /* Default sans-serif */
+    
+    /* Default font family */
     font-family: Inter, var(--font-fallback);
+    
+    /* Inter Font feature settings */
     font-feature-settings:
       "liga" 1,
       "calt" 1, /* Contextual Alternates */
@@ -97,12 +101,20 @@
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
   }
+
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+
+  #vtbot-loading-indicator {
+    pointer-events: none !important;
+  }
+
+  /* Alternate Font feature settings */
   .display {
     font-feature-settings:
       "liga" 1,
@@ -116,6 +128,8 @@
 }
 
 @layer components {
+
+  /* Alternative Font rules */
   .condensed {
     font-family: "Mona Sans Condensed", Inter, var(--font-fallback);
     font-stretch: 75%;
@@ -126,6 +140,20 @@
   }
   .display {
     font-family: "Mona Sans", Inter, var(--font-fallback);
+  }
+
+  .content-wrapper {
+    @apply flex-grow;
+  }
+
+  /* Colore per tutti gli header (h1-h6) */
+  h1, h2, h3, h4, h5, h6, .text-heading {
+    @apply text-primary dark:text-white; /* Usa i colori definiti nella tua configurazione Tailwind */
+  }
+  /* Colore e stile per i paragrafi */
+  p, .text-paraf {
+    @apply text-zinc-800 dark:text-zinc-300; /* Usa i colori definiti nella tua configurazione Tailwind */
+    @apply text-base font-light leading-relaxed;
   }
 }
 
@@ -141,14 +169,6 @@
   .display {
     font-family: "Mona Sans Variable", var(--font-fallback);
   }
-  .condensed {
-    font-family: "Mona Sans Variable", var(--font-fallback);
-    font-stretch: 75%;
-  }
-  .wide {
-    font-family: "Mona Sans Variable", var(--font-fallback);
-    font-stretch: 125%;
-  }
 }
 
 /* WEBSITES style */
@@ -161,10 +181,6 @@ a.website:not(:hover) > img {
   display: none;
 }
 
-/* GLOBAL styles */
-#vtbot-loading-indicator {
-  pointer-events: none !important;
-}
 /*Lenis*/
 html.lenis, html.lenis body {
   height: auto;

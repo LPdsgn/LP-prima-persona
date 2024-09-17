@@ -1,6 +1,7 @@
 ---
 import { menuConfig } from "config/site";
 import MobileMenuToggle from "./ui/mobile-menu-toggle.astro";
+import { ModeToggle } from "./ui/ModeToggle";
 ---
 
 <header id="navbar" class="sticky ">
@@ -25,6 +26,7 @@ import MobileMenuToggle from "./ui/mobile-menu-toggle.astro";
         <span class="line-2"></span>
         <span class="line-3"></span>
       </button> -->
+      <ModeToggle client:load />
     </div>
 
   </div>
