@@ -133,19 +133,19 @@
     @apply font-medium tracking-tight text-primary;
   }
   .xl3 {
-    @apply text-4xl md:text-6xl lg:text-8xl;
+    @apply text-5xl md:text-6xl lg:text-8xl;
   }
   .xl3 {
-    @apply text-3xl md:text-5xl lg:text-7xl;
+    @apply text-4xl md:text-5xl lg:text-7xl;
   }
   .xl {
-    @apply text-2xl md:text-4xl lg:text-6xl;
+    @apply text-3xl md:text-5xl lg:text-6xl;
   }
   .lg {
-    @apply text-xl md:text-3xl lg:text-5xl;
+    @apply text-2xl md:text-3xl lg:text-5xl;
   }
   .md {
-    @apply text-lg md:text-2xl lg:text-4xl;
+    @apply text-xl md:text-2xl lg:text-4xl;
   }
   .sm {
     @apply text-base
@@ -178,6 +178,20 @@
 
   .content-wrapper {
     @apply z-0;
+  }
+
+  /* Lucide icons helper classes */
+  .lucide.link {
+    @apply w-7 lg:w-8 h-7 lg:h-8 p-1 border-1 rounded-full;
+  }
+
+  /* Card component helper classes */
+  .card {
+    @apply flex w-full overflow-hidden duration-200 rounded-2xl lg:rounded-3xl p-6 lg:p-8 gap-5 lg:gap-7;
+    @apply ring-1 dark:ring-white/10 ring-primary/10 dark:hover:ring-white/20 hover:ring-primary/15 bg-zinc-50 dark:bg-primary shadow-md
+  }
+  .card .media {
+    @apply rounded-lg object-cover aspect-square w-full ring-1 dark:ring-white/10 ring-primary/5;
   }
 
 }

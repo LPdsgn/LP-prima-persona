@@ -4,6 +4,7 @@ import Card from '../components/ui/Card.astro';
 import { Image, Picture } from 'astro:assets';
 import video from '../media/visio.mp4';
 import poster from '../media/visio.jpg';
+import { ArrowUpRight } from 'lucide-react';
 ---
 
 <Card
@@ -16,7 +17,7 @@ import poster from '../media/visio.jpg';
     <video
       poster={poster.src}
       src={video}
-      class="rounded-2xl object-cover ring-1 h-64 w-full lg:h-auto dark:ring-white/10 ring-primary/5 bg-tertiary"
+      class="media"
       autoplay
       muted
       loop
@@ -27,13 +28,13 @@ import poster from '../media/visio.jpg';
   <div slot="more">
 
     <div class="flex justify-between">
-      <span class="font-medium text-primary dark:text-white">
+      <span class="font-medium">
         Currently hustling at
       </span>
-      <span class="font-extralight text-primary dark:text-white -rotate-45"></span>
+      <ArrowUpRight className='link' strokeWidth={1.5}/>
     </div>
     <h3
-      class="text-3xl tracking-tight font-medium text-primary dark:text-white md:text-6xl mt-3"
+      class="xl mt-3"
     >
       Visio Digital Partner
     </h3>
