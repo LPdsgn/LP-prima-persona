@@ -2,6 +2,8 @@
 import { menuConfig } from "config/site";
 import MobileMenuToggle from "./ui/mobile-menu-toggle.astro";
 import { ModeToggle } from "./ui/ModeToggle";
+
+import { NavigationMenuDemo } from "./ui/NavigationMenu";
 ---
 
 <header id="navbar" class="sticky ">
@@ -21,11 +23,6 @@ import { ModeToggle } from "./ui/ModeToggle";
 
     <div class="actions">
       <MobileMenuToggle />
-      <!-- <button id="mobile-menu-toggle" class="mobile-menu-2 sm:hidden flex items-center text-primary dark:text-white">
-        <span class="line-1"></span>
-        <span class="line-2"></span>
-        <span class="line-3"></span>
-      </button> -->
       <ModeToggle client:load />
     </div>
 
@@ -48,12 +45,5 @@ import { ModeToggle } from "./ui/ModeToggle";
       header.classList.remove('scrolled');
     }
   }
-
-  // Use this check to ensure the code only runs in the browser
-  if (typeof window !== 'undefined') {
-    document.addEventListener('DOMContentLoaded', () => {
-      handleScroll(); // Call once to set initial state
-      document.addEventListener('scroll', handleScroll);
-    });
-  }
+  document.addEventListener('scroll', handleScroll);
 </script>

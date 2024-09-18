@@ -112,6 +112,7 @@
 
   #vtbot-loading-indicator {
     pointer-events: none !important;
+    visibility: hidden !important;
   }
 
   /* Alternate Font feature settings */
@@ -143,7 +144,7 @@
   }
 
   .content-wrapper {
-    @apply flex-grow;
+    @apply z-0;
   }
 
   /* Colore per tutti gli header (h1-h6) */
