@@ -14,7 +14,7 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 
-import { menuConfig } from "config/site";
+import { menuConfig } from "site.config";
 
 export function NavigationMenuDemo() {
   return (

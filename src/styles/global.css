@@ -82,8 +82,8 @@
     --card-foreground: 0 0% 98%;
     --popover: 240 10% 3.9%;
     --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
+    --primary: 0 0% 6%;
+    --primary-foreground: 0 0 100%;
     --secondary: 240 3.7% 15.9%;
     --secondary-foreground: 0 0% 98%;
     --muted: 240 3.7% 15.9%;
@@ -126,6 +126,39 @@
       "ss08" 1  /* Tabular zero with straight bar */
       !important;
   }
+
+  /* Colore e stile per tutti gli header (h1-h6) */
+  h1, h2, h3, h4, h5, h6, .heading {
+    @apply text-primary dark:text-white; /* Usa i colori definiti nella tua configurazione Tailwind */
+    @apply font-medium tracking-tight text-primary;
+  }
+  .xl3 {
+    @apply text-5xl md:text-6xl lg:text-8xl;
+  }
+  .xl3 {
+    @apply text-4xl md:text-5xl lg:text-7xl;
+  }
+  .xl {
+    @apply text-3xl md:text-4xl lg:text-6xl;
+  }
+  .lg {
+    @apply text-2xl md:text-3xl lg:text-5xl;
+  }
+  .md {
+    @apply text-xl md:text-2xl lg:text-4xl;
+  }
+  .sm {
+    @apply text-base
+  }
+  /* Colore e stile per i paragrafi */
+  p, .paraf {
+    @apply text-zinc-800 dark:text-zinc-300; /* Usa i colori definiti nella tua configurazione Tailwind */
+    @apply text-base lg:text-lg font-normal md:font-light leading-relaxed;
+  }
+  .big {
+    @apply text-lg lg:text-xl;
+  }
+
 }
 
 @layer components {
@@ -147,15 +180,6 @@
     @apply z-0;
   }
 
-  /* Colore per tutti gli header (h1-h6) */
-  h1, h2, h3, h4, h5, h6, .text-heading {
-    @apply text-primary dark:text-white; /* Usa i colori definiti nella tua configurazione Tailwind */
-  }
-  /* Colore e stile per i paragrafi */
-  p, .text-paraf {
-    @apply text-zinc-800 dark:text-zinc-300; /* Usa i colori definiti nella tua configurazione Tailwind */
-    @apply text-base font-light leading-relaxed;
-  }
 }
 
 @layer utilities {

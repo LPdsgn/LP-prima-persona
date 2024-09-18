@@ -10,7 +10,7 @@
 
 /* Stile del titolo principale */
 .main-title {
-    @apply uppercase font-black text-6xl md:text-7xl lg:text-9xl tracking-tight;
+    @apply font-black text-6xl md:text-7xl lg:text-9xl tracking-tight;
 }
 
 /* Sezione delle descrizioni */
@@ -25,7 +25,7 @@
 
 /* Stile generale dei link dei siti */
 .website-link {
-    @apply w-full ring-1 dark:ring-white/10 ring-primary/5 dark:hover:ring-white/20 hover:ring-primary/10 duration-300 bg-zinc-50 dark:bg-zinc-900 shadow-xl dark:shadow-thick rounded-2xl lg:rounded-3xl px-6 pt-6 pb-5 lg:px-8 lg:pt-8 lg:pb-7;
+    @apply w-full ring-1 dark:ring-white/10 ring-primary/10 dark:hover:ring-white/20 hover:ring-primary/15 duration-300 bg-zinc-50 dark:bg-primary shadow-xl dark:shadow-thick rounded-2xl lg:rounded-3xl px-6 pt-6 pb-5 lg:px-8 lg:pt-8 lg:pb-7;
 }
 
 /* Immagini del sito */

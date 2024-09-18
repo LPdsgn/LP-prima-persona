@@ -6,6 +6,7 @@ export interface WebsiteData {
     tags: string[]; // Array of tags
     online: boolean;
     details?: string; // Optional property
+    pinned?: boolean;
 }
 
 export const websiteData: WebsiteData[] = [
