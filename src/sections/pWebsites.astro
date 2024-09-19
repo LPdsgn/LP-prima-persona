@@ -60,7 +60,7 @@ const pinnedWebsites = websiteData.filter((website) => website.pinned === true);
       <>
         <WebsiteDrawer website={website} client:load />
         {index < pinnedWebsites.length - 1 && (
-          <Separator class="my-4" />
+          <Separator className="my-4" />
         )}
       </>
     ))}

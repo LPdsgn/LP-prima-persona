@@ -6,6 +6,8 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
+  DropdownMenuLabel,
+  DropdownMenuSeparator
 } from "@/components/ui/dropdown-menu";
 
 import { menuConfig } from "site.config";
@@ -23,15 +25,16 @@ export function MobileMenu() {
       </DropdownMenuTrigger>
 
       <DropdownMenuContent align="end">
-        {menuConfig.mainNav.map(item => (
-
-          <DropdownMenuItem
-            onClick={() => window.location.href=item.href}
-            className="cursor-pointer"
-          >
-            {item.title}
-          </DropdownMenuItem>
-
+        {menuConfig.mainNav.map((item, index) => (
+          <>
+            <DropdownMenuItem
+              onClick={() => window.location.href=item.href}
+              className="cursor-pointer"
+            >
+              {item.title}
+            </DropdownMenuItem>
+            {index < menuConfig.mainNav.length - 1 && <DropdownMenuSeparator />}
+          </>
         ))}
       </DropdownMenuContent>
 

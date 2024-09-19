@@ -5,6 +5,10 @@ export interface SiteConfig {
 export const menuConfig: SiteConfig = {
     mainNav: [
         {
+            title: "Index",
+            href: "/",
+        },
+        {
             title: "Websites",
             href: "/websites",
         }
