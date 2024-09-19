@@ -4,6 +4,7 @@ import Card from '../components/ui/Card.astro';
 import { Image, Picture } from 'astro:assets';
 import video from '../media/visio.mp4';
 import poster from '../media/visio.jpg';
+import { ArrowUpRight } from 'lucide-react';
 ---
 
 <Card
@@ -11,12 +12,11 @@ import poster from '../media/visio.jpg';
   target='_blank'
   rowSpan="lg:row-span-2"
 >
-
   <div slot="content" class="-ml-4 -mt-4 -mr-4">
     <video
       poster={poster.src}
       src={video}
-      class="rounded-2xl object-cover ring-1 h-64 w-full lg:h-auto dark:ring-white/10 ring-primary/5 bg-tertiary"
+      class="media"
       autoplay
       muted
       loop
@@ -25,25 +25,19 @@ import poster from '../media/visio.jpg';
   </div>
 
   <div slot="more">
-
-    <div class="flex justify-between">
-      <span class="font-medium text-primary dark:text-white">
+    <div class="flex justify-between items-center">
+      <span class="font-medium">
         Currently hustling at
       </span>
-      <span class="font-extralight text-primary dark:text-white -rotate-45"></span>
+      <ArrowUpRight className='link' strokeWidth={1.5}/>
     </div>
-    <h3
-      class="text-3xl tracking-tight font-medium text-primary dark:text-white md:text-6xl mt-3"
-    >
+    <h3 class="xl mt-3" >
       Visio Digital Partner
     </h3>
-
-    <p class="mt-4 text-sm text-zinc-500 dark:text-zinc-400 font-light">
+    <p class="mt-4">
       A digital performance agency that accelerates digital growth of companies
       that want to develop, optimise, and scale their business in the digital
       world.
     </p>
-
   </div>
-
 </Card>

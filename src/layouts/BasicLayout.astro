@@ -11,6 +11,7 @@ import GTMhead from "@/components/analytics/GTMhead.astro";
 import GTMafterBody from "@/components/analytics/GTMafterBody.astro";
 import HeadScripts from '@/components/markup/HeadScripts.astro';
 import HeadStyles from '@/components/markup/HeadStyles.astro';
+// import '../components/markup/mode-toggle';
 
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
@@ -38,37 +39,8 @@ if (Astro.props.ogImage === undefined) {
 const { title, description, ogImage, author, headScripts = [], headStyles = [] } = Astro.props
 ---
 
-<script is:inline id="modeToggle">
-  (function() {
-    function getThemePreference() {
-      if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-        return localStorage.getItem('theme');
-      }
-      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-    }
-    
-    function setTheme(theme) {
-      if (theme === 'dark') {
-        document.documentElement.classList.add('dark');
-      } else {
-        document.documentElement.classList.remove('dark');
-      }
-      if (typeof localStorage !== 'undefined') {
-        localStorage.setItem('theme', theme);
-      }
-    }
-    
-    // Apply the theme immediately
-    var theme = getThemePreference();
-    setTheme(theme);
-    
-    // Optionally, you can add a class to the html element to indicate that JS has loaded
-    document.documentElement.classList.add('js-theme-loaded');
-  })();
-</script>
-
 <!doctype html>
-<html lang="en" class="lenis">
+<html lang="en" class="lenis dark">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     

@@ -4,27 +4,21 @@ import { Image, Picture } from 'astro:assets';
 import blowhammerDrops from '../media/works/blowhammer/blowhammer-drops.jpeg';
 ---
 
-<Card
-    rowStart="lg:row-start-2" 
-    justify='between'
->
+<Card rowStart="lg:row-start-2" justify='between'>
   <div slot="content">
-    <h3
-      class="text-2xl lg:text-2xl tracking-tight font-medium text-primary dark:text-white"
-    >
+    <h3 class="text-2xl">
       Blowhammer Drops
     </h3>
-    <p class="mt-2 text-sm text-zinc-500 dark:text-zinc-400 font-light">
-      My journey at <a href="https://it.blowhammer.com" rel="nofollow" class="underline"
-        >Blowhammer↗</a
-      >.<br />A graphic report.
+    <p class="mt-2 ">
+      My journey at <a href="https://it.blowhammer.com" rel="nofollow" class="underline">Blowhammer↗</a>.
+      <br />A graphic report.
     </p>
   </div>
   <div slot="more" class="-mx-4 -mb-4">
     <Image 
       src={blowhammerDrops}
       alt="Designs for Blowhammer streetwear brand's clothes"
-      class="rounded-2xl object-cover ring-1 w-full dark:ring-white/10 ring-primary/5 bg-tertiary lex-grow"
+      class="media"
     />
   </div>
 </Card>

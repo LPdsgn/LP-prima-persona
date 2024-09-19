@@ -4,46 +4,34 @@ import { Image } from "astro:assets";
 import avatar from '../media/avatar/avatar_lp.jpg';
 ---
 
-<Card
-  rowSpan="lg:row-span-1"
+<Card rowSpan="lg:row-span-1">
 
->
-
-  <div slot="trailing"
-  class="relative flex items-center gap-x-4"
-  >
+  <div slot="trailing" class="flex items-center gap-x-3">
     <Image
       src={avatar}
       alt=""
       width={50}
       height={50}
-      class="h-10 w-10 rounded-full ring-1 dark:ring-white/10 ring-primary/5"
+      class="h-10 w-10 lg:w-12 lg:h-12 rounded-full ring"
     />
-    <div class="text-sm leading-6">
-      <p class="font-semibold text-heading">
-        <a href="#">
-          <span class="absolute inset-0"></span>
+    <div class="text-sm">
+      <p class="font-semibold heading">
           Luigi Pedata
-        </a>
       </p>
-      <p>Designer &amp; Web developer</p>
+      <p class="text-sm">Designer &amp; Web developer</p>
     </div>
   </div>
 
   <div slot="content">
-    <p class="text-3xl font-medium lg:text-4xl tracking-tight text-primary dark:text-white">
+    <p class="text-3xl lg:text-4xl heading">
       Hello stranger!
     </p>
-    <h1
-      class="mt-4 text-sm font-light lg:text-xl text-paraf"
-    >
-      I'm <b class="font-medium">Luigi</b>, a multidisciplinary designer and web
+    <h1 class="mt-4 big paraf">
+      I'm <b class="font-semibold">Luigi</b>, a multidisciplinary designer and web
       developer. I do graphics, websites, interfaces, brand identities.
     </h1>
-    <p
-      class="mt-4 text-sm  font-light lg:text-xl"
-    >
-      This is another <b class="font-medium">experiment</b>. Feel free to browse it, share it and get in touch.
+    <p class="mt-4 big">
+      This is another <b class="font-semibold">experiment</b>. Feel free to browse it, share it and get in touch.
     </p>
   </div>
 

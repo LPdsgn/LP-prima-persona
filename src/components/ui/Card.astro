@@ -21,7 +21,7 @@ interface Props {
 
 const { height, colSpan, colStart, rowSpan, rowStart, flexDir, flexWrap, gap, spacing, align, justify, round, href, target, rel, children } = Astro.props;
 
-const baseClass = `flex w-full overflow-hidden bg-white dark:bg-custom-secondary shadow-xl dark:shadow-thick duration-300 ring-1 ring-primary/5 hover:ring-primary/5 dark:ring-white/10 dark:hover:ring-white/20
+const baseClass = `card
     ${height || 'h-full'} 
     ${colStart || ''}
     ${rowStart || ''}
@@ -29,11 +29,9 @@ const baseClass = `flex w-full overflow-hidden bg-white dark:bg-custom-secondary
     ${rowSpan || ''}
     ${flexDir || 'flex-col'}
     ${flexWrap || ''}
-    p-${spacing || '8'}
-    gap-${gap || '6'}
+    p-${spacing || ''}
     items-${align || 'stretch'}
     justify-${justify || 'start'}
-    rounded${round || '-3xl'}
 `;
 
 /* const moreClass = `-${parseInt(gap || '4') / 2}`;

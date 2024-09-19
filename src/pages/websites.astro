@@ -2,12 +2,12 @@
 // Globals
 import BasicLayout from '@/layouts/BasicLayout.astro';
 import Pulse from '@/components/ui/Pulse.astro';
-import { Badge } from "@/components/ui/badge";
-import { Image, Picture } from 'astro:assets';
+import OnlineStatusIndicator from '@/components/my/OnlineStatus';
 
 // Page related
-import { websiteData } from '../data/WebsitesData.json';
+import { websiteData } from '@/lib/WebsitesData.json';
 import '@/styles/websites.css';
+import { WebsiteDrawer } from '@/components/my/WebsiteCardDrawer';
 ---
 
 <BasicLayout
@@ -21,65 +21,25 @@ import '@/styles/websites.css';
       </h1>
       <div class="description-text">
         <p class="description-paragraph">
-          <Pulse online={true} /> Online as delivered
+          <OnlineStatusIndicator online={true} /> Online as delivered
         </p>
         <p class="description-paragraph">
-          <Pulse online={false} /> Offline or modified by third parties
+          <OnlineStatusIndicator online={false} /> Offline or modified by third parties
         </p>
       </div>
     </div>
 
     {websiteData.map((website, index) => (
-        <a
-          class="website-link"
-          data-index={index}
-          href={website.publicLink}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <div class={`website-image-container ${
-          website.online ? '' : 'opacity-25'
-          }`}>
-            <img
-              loading="lazy"
-              class="website-image"
-              src={website.desktopImageSrc}
-              onerror="this.onerror = null; this.src = '/media/websites/placeholder.jpg'"
-            />
-            <img
-              loading="lazy"
-              class="website-mobile-image"
-              src={website.mobileImageSrc}
-              onerror="this.onerror = null; this.src = '/media/websites/placeholder.jpg'"
-            />
-          </div>
-          <div class="website-title-container">
-            <h3 class={`website-title ${
-              website.online ? '' : 'line-through'
-            }`}>
-              {website.websiteName}
-            </h3>
-            <span class="website-status">
-              <Pulse online={website.online} />
-              <span
-                class={`website-status-icon ${
-                  website.online ? '' : 'opacity-35'
-                }`}
-              ></span>
-            </span>
-          </div>
-
-          <div class="website-tags">
-            {website.tags.map((tag, tagIndex) => (
-              <Badge variant="secondary">
-                {tag}
-              </Badge>
-            ))}
-          </div>
-          
-          
-        </a>
-      ))
-    }
+      <WebsiteDrawer website={website} client:load />
+    ))}
+    
   </main>
 </BasicLayout>
+
+<!-- <a
+  class="website-link"
+  data-index={index}
+  href={website.publicLink}
+  target="_blank"
+  rel="noopener noreferrer"
+></a> -->

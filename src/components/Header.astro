@@ -1,6 +1,6 @@
 ---
-import { menuConfig } from "config/site";
-import MobileMenuToggle from "./ui/mobile-menu-toggle.astro";
+import { menuConfig } from "site.config";
+import MobileMenuToggle from "./ui/MobileMenuToggle.astro";
 import { ModeToggle } from "./ui/ModeToggle";
 
 import { NavigationMenuDemo } from "./ui/NavigationMenu";
@@ -23,7 +23,7 @@ import { NavigationMenuDemo } from "./ui/NavigationMenu";
 
     <div class="actions">
       <MobileMenuToggle />
-      <ModeToggle client:load />
+      
     </div>
 
   </div>
