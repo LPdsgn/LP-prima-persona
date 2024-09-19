@@ -1,9 +1,7 @@
 import * as React from "react"
 import { Button } from "@/components/ui/button"
-import { buttonVariants } from "@/components/ui/button"
 import { Badge } from '@/components/ui/badge'
 import OnlineStatusIndicator from './OnlineStatus'
-import { ArrowUpRight } from 'lucide-react';
 import { Plus } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 
@@ -11,10 +9,6 @@ import {
   Drawer,
   DrawerClose,
   DrawerContent,
-  DrawerDescription,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer"
 
@@ -115,7 +109,7 @@ export function WebsiteDrawer({ website }: WebsiteDrawerProps) {
                   className="basis-1/2 flex-grow"
                 >
                   Visit Website
-                  <ArrowUpRight className='ml-auto' strokeWidth={1.5}/>
+                  <Plus className='ml-auto' strokeWidth={1.5}/>
                 </a>
               </Button>
               <DrawerClose asChild>

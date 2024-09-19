@@ -197,6 +197,14 @@
     @apply ring-1 dark:ring-white/10 ring-primary/5;
   }
 
+  /* Menu toggle helper */
+  .menuToggle[aria-expanded="true"] .open {
+    @apply scale-0;
+  }
+  .menuToggle[aria-expanded="true"] .close {
+    @apply scale-100;
+  }
+
 }
 
 @layer utilities {

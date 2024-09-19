@@ -2,7 +2,7 @@
 import { menuConfig } from "site.config";
 import MobileMenuToggle from "./ui/MobileMenuToggle.astro";
 import { ModeToggle } from "./ui/ModeToggle";
-
+import { MobileMenu } from "./my/MobileMenu";
 import { NavigationMenuDemo } from "./ui/NavigationMenu";
 ---
 
@@ -22,17 +22,16 @@ import { NavigationMenuDemo } from "./ui/NavigationMenu";
     </nav>
 
     <div class="actions">
-      <MobileMenuToggle />
-      
+      <MobileMenu client:load />
     </div>
 
   </div>
 
-  <nav id="mobile-menu">
+  <!-- <nav id="mobile-menu">
     {menuConfig.mainNav.map(item => (
       <a href={item.href} class="item">{item.title}</a>
     ))}
-  </nav>
+  </nav> -->
 
 </header>
 
