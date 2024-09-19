@@ -193,6 +193,9 @@
   .card .media {
     @apply rounded-lg object-cover aspect-square w-full ring-1 dark:ring-white/10 ring-primary/5;
   }
+  .ring {
+    @apply ring-1 dark:ring-white/10 ring-primary/5;
+  }
 
 }
 
