@@ -1,6 +1,7 @@
 ---
 // Page related
-import Card from '../components/ui/Card.astro';
+import Card from '@/components/ui/Card.astro';
+import { Badge } from '@/components/ui/badge';
 import { websiteData } from '@/lib/WebsitesData.json';
 import { ArrowUpRight } from 'lucide-react';
 ---
@@ -14,9 +15,9 @@ import { ArrowUpRight } from 'lucide-react';
   class:list={['group']}
 >
   <div slot="trailing">
-    <span class="font-medium">
-      Recent works:
-    </span>
+    <Badge variant="secondary">
+      Recent works
+    </Badge>
     <h3 class="xl mt-2">Websites</h3>
     <p class="mt-3">
       A collection of the websites I've created recently.

@@ -20,12 +20,12 @@
 
 /* Paragrafo descrittivo con icone */
 .description-paragraph {
-    @apply flex items-center gap-2;
+    @apply flex items-center gap-2 text-sm;
 }
 
 /* Stile generale dei link dei siti */
 .website-link {
-    @apply w-full ring-1 dark:ring-white/10 ring-primary/10 dark:hover:ring-white/20 hover:ring-primary/15 duration-300 bg-zinc-50 dark:bg-primary shadow-xl dark:shadow-thick rounded-2xl lg:rounded-3xl px-6 pt-6 pb-5 lg:px-8 lg:pt-8 lg:pb-7;
+    @apply cursor-pointer w-full ring-1 dark:ring-white/10 ring-primary/10 dark:hover:ring-white/20 hover:ring-primary/15 duration-300 bg-zinc-50 dark:bg-primary-foreground shadow-xl dark:shadow-thick rounded-2xl lg:rounded-3xl px-6 pt-6 pb-5 lg:px-8 lg:pt-8 lg:pb-7;
 }
 
 /* Immagini del sito */
@@ -36,9 +36,12 @@
 .website-image {
     @apply aspect-[16/10] h-auto w-5/6 object-cover object-top rounded lg:rounded-lg shadow-md dark:shadow-thick;
 }
-
 .website-mobile-image {
     @apply aspect-[6/13] h-auto w-1/6 object-cover object-center rounded-md -ml-5 flex-grow shadow-md dark:shadow-thick;
+}
+.website-image, .website-mobile-image {
+    background: url(/media/var/placeholder.jpg) center;
+    background-size: cover;
 }
 
 /* Titolo e stato del sito */

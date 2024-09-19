@@ -4,7 +4,7 @@
     min-height: 75px;    
 }
 #navbar.scrolled {
-    @apply shadow-xl dark:shadow-thick bg-background/85 dark:bg-primary/85 backdrop-blur;
+    @apply shadow-xl dark:shadow-thick bg-background/85 dark:bg-primary-foreground/85 backdrop-blur;
 }
 #navbar .inner-wrapper {
     @apply flex w-full py-4 items-center gap-4 space-x-4 justify-between sm:space-x-0;
