@@ -4,12 +4,9 @@ import { Image } from "astro:assets";
 import avatar from '../media/avatar/avatar_lp.jpg';
 ---
 
-<Card
-  rowSpan="lg:row-span-1"
->
+<Card rowSpan="lg:row-span-1">
 
-  <div slot="trailing" class="flex items-center gap-x-3"
-  >
+  <div slot="trailing" class="flex items-center gap-x-3">
     <Image
       src={avatar}
       alt=""
@@ -29,16 +26,12 @@ import avatar from '../media/avatar/avatar_lp.jpg';
     <p class="text-3xl lg:text-4xl heading">
       Hello stranger!
     </p>
-    <h1
-      class="mt-4 big paraf"
-    >
-      I'm <b>Luigi</b>, a multidisciplinary designer and web
+    <h1 class="mt-4 big paraf">
+      I'm <b class="font-semibold">Luigi</b>, a multidisciplinary designer and web
       developer. I do graphics, websites, interfaces, brand identities.
     </h1>
-    <p
-      class="mt-4 big"
-    >
-      This is another <b class="font-medium">experiment</b>. Feel free to browse it, share it and get in touch.
+    <p class="mt-4 big">
+      This is another <b class="font-semibold">experiment</b>. Feel free to browse it, share it and get in touch.
     </p>
   </div>
 
