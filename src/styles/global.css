@@ -213,16 +213,6 @@
   }
 }
 
-/* WEBSITES style */
-a.website > img {
-  width: 37.5%;
-  height: auto;
-  z-index: 99;
-}
-a.website:not(:hover) > img {
-  display: none;
-}
-
 /*Lenis*/
 html.lenis, html.lenis body {
   height: auto;

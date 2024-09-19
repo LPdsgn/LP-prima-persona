@@ -17,6 +17,7 @@ export const websiteData: WebsiteData[] = [
     websiteName: "bhblasted.com",
     tags: ["Showcase","Multilingual"],
     online: true,
+    pinned: true,
   },
   {
     desktopImageSrc: "/media/websites/",
@@ -25,6 +26,7 @@ export const websiteData: WebsiteData[] = [
     websiteName: "kaze.club",
     tags: ["Showcase",],
     online: true,
+    pinned: true,
   },
   {
     desktopImageSrc: "/media/websites/whitelist-d-648caf5be5379.webp",
@@ -33,6 +35,7 @@ export const websiteData: WebsiteData[] = [
     websiteName: "whitelist.pro",
     tags: ["Showcase",],
     online: true,
+    pinned: true,
   },
   {
     desktopImageSrc: "/media/websites/visio-d-648caf5aedfce.webp",
@@ -41,6 +44,7 @@ export const websiteData: WebsiteData[] = [
     websiteName: "visiodp.com",
     tags: ["Showcase","Portfolio","Multilingual"],
     online: true,
+    pinned: true,
   },
   {
     desktopImageSrc: "/media/websites/",
@@ -49,6 +53,7 @@ export const websiteData: WebsiteData[] = [
     websiteName: "facetraining.it",
     tags: ["eCommerce"],
     online: true,
+    pinned: true,
   },
   {
     desktopImageSrc: "/media/websites/",
@@ -57,6 +62,7 @@ export const websiteData: WebsiteData[] = [
     websiteName: "tekneav.com",
     tags: ["Showcase",],
     online: true,
+    pinned: true,
   },
   {
     desktopImageSrc: "/media/websites/guerritore-d-648caf50ddf1b.webp",
@@ -65,6 +71,7 @@ export const websiteData: WebsiteData[] = [
     websiteName: "viniguerritore.it",
     tags: ["Showcase","Multilingual"],
     online: true,
+    pinned: true,
   },
   {
     desktopImageSrc: "/media/websites/monsterhouse-d-648caf551b345.webp",
@@ -81,6 +88,7 @@ export const websiteData: WebsiteData[] = [
     websiteName: "studiobelcuore.it",
     tags: ["Showcase","Portfolio"],
     online: true,
+    pinned: true,
   },
   {
     desktopImageSrc: "/media/websites/mtvcamp-d-648caf5816101.webp",
@@ -89,6 +97,7 @@ export const websiteData: WebsiteData[] = [
     websiteName: "mtvcampania.org",
     tags: ["Listings","Multilingual"],
     online: true,
+    pinned: true,
   },
   {
     desktopImageSrc: "/media/websites/h2power-d-648caf521fbba.webp",
@@ -97,6 +106,7 @@ export const websiteData: WebsiteData[] = [
     websiteName: "h2powersrl.it",
     tags: ["Showcase",],
     online: true,
+    pinned: true,
   },
   {
     desktopImageSrc: "/media/websites/plpharma-d-648caf59b56a5.webp",
@@ -121,6 +131,7 @@ export const websiteData: WebsiteData[] = [
     websiteName: "ilsformazione.it",
     tags: ["Showcase",],
     online: true,
+    pinned: true,
   },
   {
     desktopImageSrc: "/media/websites/coohesion-d-648caf4fa2f92.webp",
@@ -129,6 +140,7 @@ export const websiteData: WebsiteData[] = [
     websiteName: "coohesion.com",
     tags: ["eCommerce","Multilingual"],
     online: true,
+    pinned: true,
   },
   {
     desktopImageSrc: "/media/websites/allprint-d-648caf4c06422.webp",

@@ -1,29 +1,71 @@
 ---
-import Websites from "./Websites.astro";
+// Page related
+import Card from '../components/ui/Card.astro';
+import { websiteData } from '@/lib/WebsitesData.json';
+import { ArrowUpRight } from 'lucide-react';
 ---
 
-<div
-  class="ring-1 lg:row-span-2 flex flex-col justify-between group hover:ring-primary/10 dark:hover:ring-white/20 duration-300 h-full dark:ring-white/10 ring-primary/5 lg:row-start-2 lg:gap-0 md:gap-12 lg:grid-cols-none lg:col-start-2 lg:col-span-2 rounded-3xl p-8 bg-white dark:bg-custom-secondary shadow-xl dark:shadow-thick"
+<Card
+  rowStart="lg:row-start-2"
+  rowSpan="lg:row-span-2"
+  colStart='lg:col-start-2'
+  colSpan='lg:col-span-2'
+  justify='between'
+  class:list={['group']}
 >
-  <div class="md:flex justify-between items-end">
-    <div>
-      <span class="font-medium text-primary dark:text-white">
-        Recent works:
-      </span>
-      <h3
-        class="text-3xl tracking-tight font-medium text-primary dark:text-white md:text-6xl mt-2"
-      >
-        Websites
-      </h3>
-    </div>
-    <p class="mt-4 text-sm font-light md:text-end text-zinc-500 dark:text-zinc-400">
+  <div slot="trailing">
+    <span class="font-medium">
+      Recent works:
+    </span>
+    <h3 class="xl mt-2">Websites</h3>
+    <p class="mt-3">
       A collection of the websites I've created recently.
       <br />
-      <a
-      href="/websites"
-      class="underline"
-      >Comprehensive list↗</a>
+      <a href="/websites" class="underline">Comprehensive list↗</a>
     </p>
   </div>
-  <Websites />
-</div>
+
+  <style>
+    .websiteList {
+      @apply flex flex-col divide-y divide-zinc-200 dark:divide-zinc-700 -mx-4 -mb-4 mt-4;
+    }
+    a.website {
+      @apply py-3 px-4 flex justify-between text-lg lg:text-xl;
+      @apply focus:ring-2 focus:ring-offset-2  relative;
+      @apply dark:hover:bg-white/5 hover:bg-primary/10 duration-200;
+    }
+    a.website > img {
+      width: 37.5%;
+      height: auto;
+      z-index: 99;
+      background: url('/media/var/placeholder.jpg') center no-repeat cover;
+    }
+    a.website:not(:hover) > img {
+      display: none;
+    }
+  </style>
+  
+  <div slot="content" class="websiteList">
+    {
+      // Filtra i siti con 'pinned' impostato a true
+      websiteData.filter((website) => website.pinned === true).map((website, index) => (
+        <a
+          class="website rounded-md"
+          data-index={index}
+          href={website.publicLink}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <h3>{website.websiteName}</h3>
+          <ArrowUpRight className='link' strokeWidth={1.5}/>
+          <img
+            id={`image-${index}`}
+            loading="lazy"
+            class="absolute top-0 right-0  transform -translate-y-quart -translate-x-half"
+            src={website.desktopImageSrc}
+          />
+        </a>
+      ))
+    }
+  </div>
+</Card>
