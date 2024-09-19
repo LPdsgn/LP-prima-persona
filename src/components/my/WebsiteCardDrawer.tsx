@@ -4,6 +4,8 @@ import { buttonVariants } from "@/components/ui/button"
 import { Badge } from '@/components/ui/badge'
 import OnlineStatusIndicator from './OnlineStatus'
 import { ArrowUpRight } from 'lucide-react';
+import { Plus } from "lucide-react";
+import { Separator } from "@/components/ui/separator";
 
 import {
   Drawer,
@@ -34,38 +36,31 @@ export function WebsiteDrawer({ website }: WebsiteDrawerProps) {
               loading="lazy"
               className="website-image"
               src={website.desktopImageSrc}
-              onError={() => {
-                (event.target as HTMLImageElement).src =
-                  "/media/websites/placeholder.jpg";
-              }}
             />
-            <img
+            {/* <img
               loading="lazy"
               className="website-mobile-image"
               src={website.mobileImageSrc}
-              onError={() => {
-                (event.target as HTMLImageElement).src =
-                  "/media/websites/placeholder.jpg";
-              }}
-            />
+            /> */}
           </div>
           <div className="website-title-container">
             <h3
               className={`website-title ${
-                website.online ? "" : "line-through"
+                website.online ? "" : "line-through opacity-50"
               }`}
             >
               {website.websiteName}
             </h3>
             <span className="website-status">
               <OnlineStatusIndicator online={website.online} />
-              <span
-                className={`website-status-icon ${
+              {/* <Plus
+                className={`link website-status-icon ${
                   website.online ? "" : "opacity-35"
                 }`}
+                strokeWidth={1.5}
               >
                 
-              </span>
+              </Plus> */}
             </span>
           </div>
 
@@ -79,7 +74,7 @@ export function WebsiteDrawer({ website }: WebsiteDrawerProps) {
         </div>
       </DrawerTrigger>
       <DrawerContent>
-        <div className="mx-auto w-full flex flex-col md:flex-row md:items-stretch gap-8 md:gap-16 p-8 md:p-12">
+        <div className="mx-auto w-full flex flex-col md:flex-row md:items-stretch gap-6 md:gap-12 lg:gap-16 p-8 md:p-12">
           
           <div
             className={`website-image-container flex-grow basis-2/5 ${
@@ -98,9 +93,17 @@ export function WebsiteDrawer({ website }: WebsiteDrawerProps) {
             />
           </div>
           
-          <div className="flex flex-col flex-grow basis-2/5">
+          <div className="flex flex-col flex-grow basis-2/5 gap-3">
           
-            <h3 className="xl my-3">{website.websiteName}</h3>
+            <h3 className="xl md:mt-3">{website.websiteName}</h3>
+            <div className="flex flex-wrap gap-2">
+              {website.tags.map((tag, tagIndex) => (
+                <Badge key={tagIndex} variant="secondary">
+                  {tag}
+                </Badge>
+              ))}
+            </div>
+            <Separator />
             <p>{website.details || "No additional details provided."}</p>
 
             <div className="mt-auto flex flex-col md:flex-row gap-4">

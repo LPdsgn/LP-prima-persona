@@ -3,7 +3,12 @@
 import Card from '@/components/ui/Card.astro';
 import { Badge } from '@/components/ui/badge';
 import { websiteData } from '@/lib/WebsitesData.json';
-import { ArrowUpRight } from 'lucide-react';
+import { WebsiteDrawer } from '@/components/my/WebsiteButtonDrawer';
+import { Separator } from '@/components/ui/separator';
+import '@/styles/websites.css';
+
+// Filtra solo i siti web "pinned"
+const pinnedWebsites = websiteData.filter((website) => website.pinned === true);
 ---
 
 <Card
@@ -30,43 +35,34 @@ import { ArrowUpRight } from 'lucide-react';
     .websiteList {
       @apply flex flex-col divide-y divide-zinc-200 dark:divide-zinc-700 -mx-4 -mb-4 mt-4;
     }
-    a.website {
+    .websiteButton {
       @apply py-3 px-4 flex justify-between text-lg lg:text-xl;
-      @apply focus:ring-2 focus:ring-offset-2  relative;
+      @apply focus:ring-2 focus:ring-offset-2 relative;
       @apply dark:hover:bg-white/5 hover:bg-primary/10 duration-200;
     }
-    a.website > img {
+    .websiteButton > img {
       width: 37.5%;
       height: auto;
       z-index: 99;
       background: url('/media/var/placeholder.jpg') center no-repeat cover;
     }
-    a.website:not(:hover) > img {
-      display: none;
+    .websiteButton:not(:hover) > img {
+      display: none !important;
+    }
+    .website-image, .website-mobile-image {
+    background: url(/media/var/placeholder.jpg) center;
+    background-size: cover;
     }
   </style>
   
   <div slot="content" class="websiteList">
-    {
-      // Filtra i siti con 'pinned' impostato a true
-      websiteData.filter((website) => website.pinned === true).map((website, index) => (
-        <a
-          class="website rounded-md"
-          data-index={index}
-          href={website.publicLink}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h3>{website.websiteName}</h3>
-          <ArrowUpRight className='link' strokeWidth={1.5}/>
-          <img
-            id={`image-${index}`}
-            loading="lazy"
-            class="absolute top-0 right-0  transform -translate-y-quart -translate-x-half"
-            src={website.desktopImageSrc}
-          />
-        </a>
-      ))
-    }
+    {pinnedWebsites.map((website, index) => (
+      <>
+        <WebsiteDrawer website={website} client:load />
+        {index < pinnedWebsites.length - 1 && (
+          <Separator class="my-4" />
+        )}
+      </>
+    ))}
   </div>
 </Card>
