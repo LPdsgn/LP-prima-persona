@@ -23,7 +23,7 @@ export function WebsiteDrawer({ website }: WebsiteDrawerProps) {
         <div className="website-link">
           <div
             className={`website-image-container ${
-              website.online ? "" : "opacity-25"
+              website.online === true ? "" : website.online === false ? "opacity-25" : "opacity-50"
             }`}
           >
             <img
@@ -40,7 +40,7 @@ export function WebsiteDrawer({ website }: WebsiteDrawerProps) {
           <div className="website-title-container">
             <h3
               className={`website-title ${
-                website.online ? "" : "line-through opacity-50"
+                website.online === false ? "line-through opacity-50" : website.online === true ? "" : "opacity-60"
               }`}
             >
               {website.websiteName}
