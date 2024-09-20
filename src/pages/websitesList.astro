@@ -1,14 +1,27 @@
 ---
 // Globals
 import BasicLayout from '@/layouts/BasicLayout.astro';
-import Pulse from '@/components/ui/Pulse.astro';
-import { Badge } from "@/components/ui/badge";
-import { Image, Picture } from 'astro:assets';
-
-// Page related
-import { websiteData } from '@/lib/WebsitesData.json';
 import '@/styles/websites.css';
-import { WebsiteDrawer } from '@/components/my/WebsiteCardDrawer';
+import { WebsiteDrawer } from '@/components/my/WebsiteCardDrawerCMS';
+
+import { contentfulClient } from "@/lib/contentful";
+import type { WebsiteDataCMS, CMSWebsiteEntry } from '@/lib/CMS.types';
+
+const entries = await contentfulClient.getEntries<CMSWebsiteEntry>({
+  content_type: 'websites',
+});
+
+const websites: WebsiteDataCMS[] = entries.items.map((item) => ({
+  id: item.sys.id,
+  websiteName: item.fields.title,
+  desktopImage: item.fields.thumbnail.fields.file.url,
+  mobileImage: item.fields.mobileThumbnail?.fields.file.url,
+  publicLink: item.fields.liveUrl,
+  tags: item.fields.tags,
+  isOnline: item.fields.isOnline ?? true, // Default to true if undefined
+  details: item.fields.details,
+  pinned: item.fields.pinned ?? false // Default to false if undefined
+}));
 ---
 
 <BasicLayout
@@ -16,6 +29,8 @@ import { WebsiteDrawer } from '@/components/my/WebsiteCardDrawer';
   description="Some of the websites that I designed and developed"
 >
     <main class="main-container">
-        
+        {websites.map((website) => (
+          <WebsiteDrawer client:load website={website} />
+        ))}
     </main>
 </BasicLayout>
