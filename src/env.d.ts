@@ -11,7 +11,7 @@ interface WebsiteData {
   publicLink: string;
   websiteName: string;
   tags: string[]; // Array of tags
-  online: boolean;
+  online: boolean | any;
   details?: string; // Optional property
   pinned?: boolean;
 }

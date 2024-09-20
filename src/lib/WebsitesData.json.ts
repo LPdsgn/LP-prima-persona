@@ -6,6 +6,7 @@ export const websiteData: WebsiteData[] = [
     websiteName: "bhblasted.com",
     tags: ["Showcase","Multilingual"],
     online: true,
+    details: '',
     pinned: true,
   },
   {
@@ -15,6 +16,7 @@ export const websiteData: WebsiteData[] = [
     websiteName: "kaze.club",
     tags: ["Showcase",],
     online: true,
+    details: '',
     pinned: true,
   },
   {
@@ -24,6 +26,7 @@ export const websiteData: WebsiteData[] = [
     websiteName: "whitelist.pro",
     tags: ["Showcase",],
     online: true,
+    details: '',
     pinned: true,
   },
   {
@@ -33,6 +36,7 @@ export const websiteData: WebsiteData[] = [
     websiteName: "visiodp.com",
     tags: ["Showcase","Portfolio","Multilingual"],
     online: true,
+    details: '',
     pinned: true,
   },
   {
@@ -42,6 +46,7 @@ export const websiteData: WebsiteData[] = [
     websiteName: "facetraining.it",
     tags: ["eCommerce"],
     online: true,
+    details: '',
     pinned: true,
   },
   {
@@ -51,6 +56,7 @@ export const websiteData: WebsiteData[] = [
     websiteName: "tekneav.com",
     tags: ["Showcase",],
     online: true,
+    details: '',
     pinned: true,
   },
   {
@@ -60,6 +66,7 @@ export const websiteData: WebsiteData[] = [
     websiteName: "viniguerritore.it",
     tags: ["Showcase","Multilingual"],
     online: true,
+    details: '',
     pinned: true,
   },
   {
@@ -68,7 +75,8 @@ export const websiteData: WebsiteData[] = [
     publicLink: "https://monsterhouse.ch/",
     websiteName: "monsterhouse.ch",
     tags: ["Showcase","Portfolio"],
-    online: false,
+    online: '',
+    details: '',
   },
   {
     desktopImageSrc: "/media/websites/belcuore-d-648caf4d193d6.webp",
@@ -77,6 +85,7 @@ export const websiteData: WebsiteData[] = [
     websiteName: "studiobelcuore.it",
     tags: ["Showcase","Portfolio"],
     online: true,
+    details: '',
     pinned: true,
   },
   {
@@ -86,6 +95,7 @@ export const websiteData: WebsiteData[] = [
     websiteName: "mtvcampania.org",
     tags: ["Listings","Multilingual"],
     online: true,
+    details: '',
     pinned: true,
   },
   {
@@ -95,6 +105,7 @@ export const websiteData: WebsiteData[] = [
     websiteName: "h2powersrl.it",
     tags: ["Showcase",],
     online: true,
+    details: '',
     pinned: true,
   },
   {
@@ -104,6 +115,7 @@ export const websiteData: WebsiteData[] = [
     websiteName: "plpharma.it",
     tags: ["eCommerce"],
     online: false,
+    details: '',
   },
   {
     desktopImageSrc: "/media/websites/mpmeccanica-m-648caf5732ca8.webp",
@@ -112,6 +124,7 @@ export const websiteData: WebsiteData[] = [
     websiteName: "mpmeccanica.com",
     tags: ["Showcase","Multilingual"],
     online: true,
+    details: '',
   },
   {
     desktopImageSrc: "/media/websites/ils-m-648caf5365679.webp",
@@ -120,6 +133,7 @@ export const websiteData: WebsiteData[] = [
     websiteName: "ilsformazione.it",
     tags: ["Showcase",],
     online: true,
+    details: '',
     pinned: true,
   },
   {
@@ -129,6 +143,7 @@ export const websiteData: WebsiteData[] = [
     websiteName: "coohesion.com",
     tags: ["eCommerce","Multilingual"],
     online: true,
+    details: '',
     pinned: true,
   },
   {
@@ -138,6 +153,7 @@ export const websiteData: WebsiteData[] = [
     websiteName: "allprintpaper.it",
     tags: ["Showcase"],
     online: true,
+    details: '',
   },
   {
     desktopImageSrc: "/media/websites/belcuoresrl-d-648caf4e7b7dc.webp",
@@ -146,6 +162,7 @@ export const websiteData: WebsiteData[] = [
     websiteName: "belcuoresrl.com",
     tags: ["Showcase","Portfolio"],
     online: true,
+    details: '',
   },
 
   // Add more elements as needed
