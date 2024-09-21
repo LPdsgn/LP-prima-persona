@@ -1,0 +1,140 @@
+---
+import '@/styles/global.css'
+
+import { SITE } from '@/consts'
+import { ViewTransitions } from 'astro:transitions'
+
+interface Props {
+  title: string
+  description: string
+  image?: string
+  headScripts?: string[]
+  headStyles?: string[]
+}
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site)
+
+if (Astro.props.image === undefined) {
+  Astro.props.image = `${Astro.url.origin}/media/og/og-lpdsgn-b.jpg`;
+}
+
+const { title, description, image, headScripts = [], headStyles = [] } = Astro.props
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="generator" content={Astro.generator} />
+
+<link rel="canonical" href={canonicalURL} />
+<link rel="sitemap" href="/sitemap-index.xml" />
+<meta name="robots" content="index, follow" />
+<meta name="googlebot" content="index, follow" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+<script id="gtm-head">
+    (function (w, d, s, l, i) {
+    w[l] = w[l] || [];
+    w[l].push({
+        "gtm.start": new Date().getTime(),
+        event: "gtm.js",
+    });
+    var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != "dataLayer" ? "&l=" + l : "";
+    j.async = true;
+    j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+    f.parentNode.insertBefore(j, f);
+    })(window, document, "script", "dataLayer", "GTM-NWRH6X5");
+</script>
+
+<title>{title}</title>
+<meta name="title" content={title} />
+<meta name="description" content={description} />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/fav/apple-touch-icon.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/fav/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/fav/favicon-16x16.png" />
+<link rel="manifest" href="/assets/fav/site.webmanifest" />
+<link rel="mask-icon" href="/assets/fav/safari-pinned-tab.svg" color="#1b1d20" />
+<meta name="msapplication-TileColor" content="#09090b" />
+<meta name="theme-color" content="#09090b" id="theme-color-meta" />
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonicalURL} />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:site_name" content={SITE.TITLE} />
+<meta property="og:url" content={Astro.site} />
+<meta property="og:image" content={image} />
+<meta property="og:image:alt" content="Social open graph" />
+<meta property="og:image:type" content="image/jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:site" content={SITE.TITLE} />
+<meta property="twitter:url" content={Astro.site} />
+<meta property="twitter:title" content={title} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={image} />
+
+<link rel="preconnect" href="https://rsms.me/" />
+<link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+<link rel="preload" href="/assets/font/Mona-Sans.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/assets/font/Mona-Sans.ttf" as="font" type="font/woff2" crossorigin />
+
+<script is:inline src="https://unpkg.com/mailgo@0.12.2/dist/mailgo.min.js" async />
+<script is:inline src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js" async />
+<script is:inline src="https://unpkg.com/lenis@1.1.5/dist/lenis.min.js" async />
+<script is:inline>
+  const lenis = new Lenis()
+  lenis.on('scroll', (e) => {
+    console.log(e)
+  })
+  function raf(time) {
+    lenis.raf(time)
+    requestAnimationFrame(raf)
+  }
+  requestAnimationFrame(raf)
+</script>
+
+<ViewTransitions />
+
+<script is:inline>
+  function setDarkMode(document) {
+    const getThemePreference = () => {
+      if (
+        typeof localStorage !== 'undefined' &&
+        localStorage.getItem('theme')
+      ) {
+        return localStorage.getItem('theme')
+      }
+      return window.matchMedia('(prefers-color-scheme: dark)').matches
+        ? 'dark'
+        : 'theme-light'
+    }
+    const isDark = getThemePreference() === 'dark'
+    document.documentElement.classList[isDark ? 'add' : 'remove']('dark')
+
+    if (typeof localStorage !== 'undefined') {
+      const observer = new MutationObserver(() => {
+        const isDark = document.documentElement.classList.contains('dark')
+        localStorage.setItem('theme', isDark ? 'dark' : 'theme-light')
+      })
+      observer.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['class'],
+      })
+    }
+  }
+
+  setDarkMode(document)
+
+  document.addEventListener('astro:before-swap', (ev) => {
+    // Pass the incoming document to set the theme on it
+    setDarkMode(ev.newDocument)
+  })
+</script>

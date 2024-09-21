@@ -1,12 +1,12 @@
 ---
 import { menuConfig } from "site.config";
 import MobileMenuToggle from "./ui/MobileMenuToggle.astro";
-import { ModeToggle } from "./ui/ModeToggle";
+import { ModeToggle } from '@/components/ui/mode-toggle'
 import { MobileMenu } from "./my/MobileMenu";
 import { NavigationMenuDemo } from "./ui/NavigationMenu";
 ---
 
-<header id="navbar" class="sticky ">
+<header id="navbar" class="sticky" transition:persist="">
   <div class="inner-wrapper">
     <!-- Site Logo -->
     <div class="branding">
@@ -22,7 +22,8 @@ import { NavigationMenuDemo } from "./ui/NavigationMenu";
     </nav>
 
     <div class="actions">
-      <MobileMenu client:load />
+      <MobileMenu client:load transition:persist />
+      <ModeToggle client:load transition:persist />
     </div>
 
   </div>
@@ -35,7 +36,7 @@ import { NavigationMenuDemo } from "./ui/NavigationMenu";
 
 </header>
 
-<script>
+{/*<script>
   function handleScroll() {
     const header = document.getElementById('navbar');
     if (window.scrollY > 8) {
@@ -45,4 +46,4 @@ import { NavigationMenuDemo } from "./ui/NavigationMenu";
     }
   }
   document.addEventListener('scroll', handleScroll);
-</script>
+</script>*/}

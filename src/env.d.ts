@@ -5,14 +5,32 @@ interface Window {
   Alpine: import('alpinejs').Alpine;
 }
 
-interface WebsiteData {
+interface ImportMetaEnv {
+  readonly CONTENTFUL_SPACE_ID: string;
+  readonly CONTENTFUL_DELIVERY_TOKEN: string;
+  readonly CONTENTFUL_PREVIEW_TOKEN: string;
+}
+
+export interface WebsiteData {
   desktopImageSrc: string;
   mobileImageSrc: string;
   publicLink: string;
   websiteName: string;
   tags: string[]; // Array of tags
-  online: boolean;
-  details?: string; // Optional property
+  online: boolean | any;
+  details?: any; // Optional property
+  pinned?: boolean;
+}
+
+export interface WebsiteDataCMS {
+  id: string;
+  websiteName: string;
+  desktopImage: string;
+  mobileImage?: string;
+  publicLink: string;
+  tags?: string[]; // Array of tags
+  isOnline?: boolean | any;
+  details?: any; // Optional property
   pinned?: boolean;
 }
 
