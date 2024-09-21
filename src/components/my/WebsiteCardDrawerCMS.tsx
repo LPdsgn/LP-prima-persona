@@ -3,11 +3,10 @@ import * as React from "react"
 import { Button } from "@/components/ui/button"
 import { Badge } from '@/components/ui/badge'
 import OnlineStatusIndicator from './OnlineStatus'
-import { Plus } from "lucide-react"; // Icon
+import { ArrowUpRight } from "lucide-react"; // Icon
 import { Separator } from "@/components/ui/separator";
 // CMS integration
-import type { WebsiteDataCMS } from '@/lib/CMS.types';
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import type { WebsiteDataCMS } from '@/lib/contentful';
 import { BLOCKS, INLINES } from '@contentful/rich-text-types';
 
 import {
@@ -109,9 +108,10 @@ export function WebsiteDrawer({ website }: WebsiteDrawerProps) {
               ))}
             </div> */}
             <Separator />
-            <div className="details">
+            <p>{website.details || "No additional details provided."}</p>
+            {/* <div className="details">
               {website.details ? documentToReactComponents(website.details, options) : <p>No additional details provided.</p>}
-            </div>
+            </div> */}
 
             <div className="mt-auto flex flex-col md:flex-row gap-4">
               <Button asChild>
@@ -122,7 +122,7 @@ export function WebsiteDrawer({ website }: WebsiteDrawerProps) {
                   className="basis-1/2 flex-grow"
                 >
                   Visit Website
-                  <Plus className='ml-auto' strokeWidth={1.5}/>
+                  <ArrowUpRight className='ml-auto' strokeWidth={1.5}/>
                 </a>
               </Button>
               <DrawerClose asChild>

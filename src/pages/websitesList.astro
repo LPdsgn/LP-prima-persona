@@ -4,8 +4,7 @@ import BasicLayout from '@/layouts/BasicLayout.astro';
 import '@/styles/websites.css';
 import { WebsiteDrawer } from '@/components/my/WebsiteCardDrawerCMS';
 
-import { contentfulClient } from "@/lib/contentful";
-import type { WebsiteDataCMS, CMSWebsiteEntry } from '@/lib/CMS.types';
+import { contentfulClient, WebsiteDataCMS, CMSWebsiteEntry } from "@/lib/contentful";
 
 const entries = await contentfulClient.getEntries<CMSWebsiteEntry>({
   content_type: 'websites',
@@ -28,9 +27,9 @@ const websites: WebsiteDataCMS[] = entries.items.map((item) => ({
   title="Websites | LP Dev Central"
   description="Some of the websites that I designed and developed"
 >
-    <main class="main-container">
-        {websites.map((website) => (
+  <main class="main-container">
+    {websites.map((website) => (
           <WebsiteDrawer client:load website={website} />
-        ))}
-    </main>
+    ))}
+  </main>
 </BasicLayout>

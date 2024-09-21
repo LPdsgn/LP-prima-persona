@@ -1,0 +1,44 @@
+---
+import BasicLayout from '../../layouts/BasicLayout.astro';
+import '@/styles/websites.css';
+import { contentfulClient, CMSWebsiteEntry } from "../../lib/contentful";
+
+let website;
+const { slug } = Astro.params;
+
+try {
+    const entries = await contentfulClient.getEntries<CMSWebsiteEntry>({
+        content_type: 'websites',
+        "fields.slug": slug,
+    });
+    const { title, year, details } = entries.items[0].fields;
+    website = {
+        title,
+        year,
+        details,
+    };
+} catch (error) {
+  console.error('Error fetching data:', error);
+  return Astro.redirect("/404");
+}
+
+if (!website) {
+  return Astro.redirect("/404");
+}
+---
+<BasicLayout
+  title={website?.title}
+  description={website?.details}
+>
+  <main class="main-container">
+    <div class="section-header">
+      <h1 class="main-title display wide">
+        {website?.title}
+      </h1>
+      <div class="description-text">
+        {website?.details}
+      </div>
+    </div>
+
+  </main>
+</BasicLayout>
