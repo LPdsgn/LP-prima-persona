@@ -1,5 +1,5 @@
 #navbar {
-    @apply top-0 z-50 px-4 w-full content-center;
+    @apply z-10 bg-background/50 backdrop-blur-md top-0 px-4 w-full content-center;
     @apply dark:border-white/10 border-primary/10 border-b-1 transition-all;
     min-height: 75px;    
 }

@@ -1,7 +1,7 @@
 import { defineConfig } from 'astro/config';
 import tailwind from "@astrojs/tailwind";
 import react from '@astrojs/react';
-//import sitemap from "@astrojs/sitemap";
+import sitemap from "@astrojs/sitemap";
 import alpinejs from "@astrojs/alpinejs";
 import vercel from '@astrojs/vercel/serverless';
 
@@ -15,15 +15,21 @@ import tailwindConfigViewer from "astro-tailwind-config-viewer";
 export default defineConfig({
   site: 'https://lpdsgn.it',
   trailingSlash: 'ignore',
-
   prefetch: {
     defaultStrategy: 'viewport'
   },
-
-  integrations: [tailwind({
-    applyBaseStyles: false,
-  }), alpinejs(), react(), metaTags(), pageInsight(), vtbot(), tailwindConfigViewer()],
-
+  integrations: [
+    tailwind({
+      applyBaseStyles: false,
+    }),
+    alpinejs(),
+    react(),
+    metaTags(),
+    pageInsight(),
+    vtbot(),
+    tailwindConfigViewer(),
+    sitemap(),
+  ],
   output: "server",
   adapter: vercel({
     webAnalytics: { enabled: true }

@@ -1,23 +1,17 @@
 {
   "compilerOptions": {
+    "strictNullChecks": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "./src/*"
-      ]
+      "@/*": ["./src/*"]
     },
-    // Abilita JSX per componenti React
-    "jsx": "react",
-    // Enable top-level await, and other modern ESM features.
+    "jsx": "react-jsx", // Abilita JSX per componenti React
+    "jsxImportSource": "react",
     "target": "ESNext",
-    "module": "ESNext",
-    // Enable node-style module resolution, for things like npm package imports.
-    "moduleResolution": "node",
-    // Enable JSON imports.
-    "resolveJsonModule": true,
-    // Enable stricter transpilation for better output.
-    "isolatedModules": true,
-    // Astro will directly run your TypeScript code, no transpilation needed.
-    "noEmit": true
+    "module": "ESNext", // Enable top-level await, and other modern ESM features.
+    "moduleResolution": "node", // Enable node-style module resolution, for things like npm package imports.
+    "resolveJsonModule": true, // Enable JSON imports.
+    "isolatedModules": true, // Enable stricter transpilation for better output.
+    "noEmit": true // Astro will directly run your TypeScript code, no transpilation needed.
   }
 }
